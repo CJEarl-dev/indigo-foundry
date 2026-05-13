@@ -9,21 +9,21 @@
    These tokens become utilities: bg-ink, text-muted, font-serif, etc.
    ============================================================= */
 @theme {
-  --color-bg: #F4F3FB;
-  --color-bg-2: #EDE9F9;
-  --color-bg-3: #E5DFF3;
+  --color-bg: #E8E3F5;           /* Darker, more saturated */
+  --color-bg-2: #DDD5EE;
+  --color-bg-3: #D0C8E5;
   --color-ink: #1A1830;
   --color-ink-2: #3D3F5A;
   --color-ink-soft: #8A88A0;
   --color-muted: #9B99B0;
-  --color-line: #3D3580;
-  --color-line-strong: #3D358033;
-  --color-accent: #3D3580;
-  --color-accent-2: #EAE8F7;
+  --color-line: #C8A882;         /* Warm sand as accent */
+  --color-line-strong: #3D358044; /* Indigo tinted, more transparent */
+  --color-accent: #C8A882;       /* Warm sand primary */
+  --color-accent-2: #D0CDD0;     /* Neutral light gray */
   --color-accent-ink: #FFFFFF;
   --color-warm: #C8A882;
   --color-card: #FFFFFF;
-
+}
 
 --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
 --font-serif: 'DM Serif Display', 'Times New Roman', serif;
