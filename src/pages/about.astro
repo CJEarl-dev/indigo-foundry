@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Story from '../components/about/Story.astro';
+import Stats from '../components/about/Stats.astro';
+import Team from '../components/about/Team.astro';
+import Values from '../components/about/Values.astro';
+import CTA from '../components/home/CTA.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Meet the team, learn our story, and read the values that shape every project we ship."
+>
+  <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+    ></div>
+
+    <div class="wrap">
+      <span class="pill-tag">About the agency</span>
+      <h1 class="about-head animate-fade-up mx-auto mt-5 max-w-[1000px] font-serif">
+        A small, senior team building <em>the web we want to use.</em>
+      </h1>
+      <p class="mx-auto mt-7 max-w-[640px] text-[19px] text-ink-2">
+        We&rsquo;re a fully-remote studio of designers, engineers, and strategists helping ambitious
+        companies grow online.
+      </p>
+    </div>
+  </section>
+
+  <Story />
+  <Stats />
+  <Team />
+  <Values />
+
+  <CTA
+    eyebrow="Want to work with us?"
+    titleHtml={'We\u2019re usually booking <span class="mark-hl">4&ndash;6 weeks</span> out.'}
+    description="Reach out and we'll get back with next steps, even if we're at capacity."
+    primaryLabel="Start a conversation"
+    primaryHref="/contact"
+    secondaryLabel=""
+    secondaryHref=""
+    showAnnotation={false}
+  />
+</BaseLayout>
+
+<style>
+  .about-head {
+    font-weight: 400;
+    font-size: clamp(48px, 7.5vw, 112px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+  }
+  .about-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+</style>

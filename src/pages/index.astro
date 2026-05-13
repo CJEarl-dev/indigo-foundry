@@ -1,0 +1,42 @@
+---
+import { getImage } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/home/Hero.astro';
+import Logos from '../components/home/Logos.astro';
+import ServicesPreview from '../components/home/ServicesPreview.astro';
+import ProjectsPreview from '../components/home/ProjectsPreview.astro';
+import AboutPreview from '../components/home/AboutPreview.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import CTA from '../components/home/CTA.astro';
+import { site } from '../data/site';
+
+// Build the transformed WebP responsive set so the preload matches
+// exactly what <Image> renders inside <Hero>. Without this, the browser
+// would preload the original PNG and download the WebP separately.
+const heroSizes =
+  '(max-width: 768px) calc(100vw - 64px), (max-width: 1280px) calc(100vw - 64px), 1136px';
+const heroPreload = site.heroImage
+  ? await getImage({
+      src: site.heroImage,
+      widths: [480, 640, 800, 1200, 1600],
+      sizes: heroSizes,
+      format: 'webp',
+      quality: 65,
+    })
+  : null;
+---
+
+<BaseLayout
+  preloadImage={heroPreload?.src}
+  preloadImageSrcset={heroPreload?.srcSet?.attribute}
+  preloadImageSizes={heroSizes}
+  preloadImageType="image/webp"
+>
+  <Hero />
+  <Logos />
+  <ServicesPreview />
+  <ProjectsPreview />
+  <AboutPreview />
+  <Testimonials />
+  <CTA />
+</BaseLayout>

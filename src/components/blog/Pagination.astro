@@ -1,0 +1,44 @@
+---
+type Props = {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+};
+
+const { currentPage, totalPages, baseUrl } = Astro.props;
+
+const pageHref = (n: number) => (n === 1 ? baseUrl : `${baseUrl}/${n}`);
+const prev = currentPage > 1 ? pageHref(currentPage - 1) : null;
+const next = currentPage < totalPages ? pageHref(currentPage + 1) : null;
+const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+---
+
+{totalPages > 1 && (
+  <nav class="flex items-center justify-between gap-4 py-8" aria-label="Pagination">
+    {prev ? (
+      <a href={prev} class="text-sm font-medium underline underline-offset-4">← Previous</a>
+    ) : (
+      <span aria-hidden="true"></span>
+    )}
+
+    <ul class="flex gap-2">
+      {pages.map((n) => (
+        <li>
+          <a
+            href={pageHref(n)}
+            aria-current={n === currentPage ? 'page' : undefined}
+            class="rounded-full border border-neutral-300 px-3 py-1 text-sm aria-[current=page]:border-neutral-900 aria-[current=page]:bg-neutral-900 aria-[current=page]:text-white"
+          >
+            {n}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    {next ? (
+      <a href={next} class="text-sm font-medium underline underline-offset-4">Next →</a>
+    ) : (
+      <span aria-hidden="true"></span>
+    )}
+  </nav>
+)}

@@ -1,0 +1,41 @@
+---
+import { site } from '../../data/site';
+---
+
+<aside class="grid gap-5 self-start">
+  <div class="rounded-2xl border border-line bg-card p-7">
+    <span class="eyebrow">Direct</span>
+    <h3 class="mt-2.5 font-serif text-[28px] font-normal tracking-[-0.015em] text-ink">
+      Skip the form.
+    </h3>
+    <ul class="mt-6 grid gap-5">
+      <li>
+        <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Email</div>
+        <a class="mt-1 block border-b border-line text-base text-ink transition-colors duration-150 hover:border-ink" href={`mailto:${site.email}`}>{site.email}</a>
+      </li>
+      <li>
+        <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Phone</div>
+        <a class="mt-1 block border-b border-line text-base text-ink transition-colors duration-150 hover:border-ink" href={`tel:${site.phone.replace(/\s/g, '')}`}>{site.phone}</a>
+      </li>
+      <li>
+        <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Office</div>
+        <div class="mt-1 block text-base text-ink">{site.address}</div>
+      </li>
+      <li>
+        <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Hours</div>
+        <div class="mt-1 block text-base text-ink">{site.hours}</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="rounded-2xl border border-line bg-card p-7">
+    <span class="eyebrow">Follow along</span>
+    <ul class="mt-4 flex flex-wrap gap-3.5">
+      <li><a class="border-b border-line text-sm text-ink transition-colors duration-150 hover:border-ink" href={site.social.x} rel="noopener">X ↗</a></li>
+      <li><a class="border-b border-line text-sm text-ink transition-colors duration-150 hover:border-ink" href={site.social.linkedin} rel="noopener">LinkedIn ↗</a></li>
+      <li><a class="border-b border-line text-sm text-ink transition-colors duration-150 hover:border-ink" href={site.social.instagram} rel="noopener">Instagram ↗</a></li>
+      <li><a class="border-b border-line text-sm text-ink transition-colors duration-150 hover:border-ink" href={site.social.dribbble} rel="noopener">Dribbble ↗</a></li>
+      <li><a class="border-b border-line text-sm text-ink transition-colors duration-150 hover:border-ink" href={site.social.github} rel="noopener">GitHub ↗</a></li>
+    </ul>
+  </div>
+</aside>

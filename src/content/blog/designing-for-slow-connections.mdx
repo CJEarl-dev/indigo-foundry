@@ -1,0 +1,30 @@
+---
+title: "Designing for slow connections, not your MacBook"
+description: "Most of your visitors aren't on gigabit fiber with an M3 Pro. Design with their reality in mind — your conversion rate will thank you."
+pubDate: 2026-03-18
+author: "Morgan Diaz"
+category: "Design"
+tags: ["ux", "performance", "accessibility"]
+image: "./_images/post-2.png"
+imageAlt: "Abstract cover illustration for an article about slow-connection design."
+---
+
+If you only test your designs on the machine you designed them on, you're going to have a bad time. The median user visiting your site is on a mid-range Android phone, on an LTE connection that briefly drops to 3G whenever they walk into a building.
+
+## The checklist we use
+
+When we hand off a design spec, it includes a short "low-bandwidth" section:
+
+- **Initial paint under 1.5s on 3G** — this dictates what can be above the fold.
+- **Images never larger than they need to render at.** Serve `srcset`, always.
+- **Text stays readable without web fonts** — add a proper fallback stack.
+- **Tap targets at least 44×44px.** Thumbs aren't mice.
+- **Forms work without JS.** Then enhance.
+
+## A practical trick
+
+We throttle our own browsers to "Fast 3G" once per sprint. If the design still feels fine, we ship. If it doesn't, we iterate. It's a 5-minute habit that's caught more problems than any automated audit.
+
+## The business case
+
+Clients used to push back on performance constraints. They stopped once we started attaching the numbers: for one B2B client, moving from LCP 4.1s to 1.8s correlated with a 22% lift in demo requests. Your visitors' patience is a rounding error on your funnel. Treat it that way.

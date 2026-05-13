@@ -1,0 +1,52 @@
+---
+// Testimonials — dark ink background with 3-col quote cards
+import { testimonials } from '../../data/about';
+
+const gradients = [
+  'linear-gradient(135deg, #D8F651, #E8DFC9)',
+  'linear-gradient(135deg, #E8DFC9, #D8F651)',
+  'linear-gradient(135deg, #D8F651, #76716A)',
+];
+---
+
+<section class="relative overflow-hidden bg-ink py-[120px] text-[#F5F1E7] max-md:py-20">
+  <!-- Subtle dot pattern overlay -->
+  <div
+    class="pointer-events-none absolute inset-0 opacity-40"
+    style="background-image: radial-gradient(#FAF8F410 1px, transparent 1px); background-size: 28px 28px;"
+  ></div>
+
+  <div class="wrap relative">
+    <div class="mb-14 flex flex-col gap-4">
+      <span class="eyebrow !text-ink-soft">Testimonials</span>
+      <h2 class="testimonials-head font-serif text-[#F5F1E7]">What clients say.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      {testimonials.map((t, i) => (
+        <figure class="flex min-h-[320px] flex-col gap-6 rounded-[20px] border border-white/10 bg-[#1F1D1A] p-8 duration-200 hover:border-white/20">
+          <div class="font-serif text-[60px] leading-[0.5] text-accent italic" aria-hidden="true">“</div>
+          <blockquote class="flex-1 font-serif text-[22px] leading-[1.25] tracking-[-0.005em] text-[#F5F1E7]">
+            {t.quote}
+          </blockquote>
+          <figcaption class="flex items-center gap-3 border-t border-white/10 pt-4">
+            <div class="h-10 w-10 shrink-0 rounded-full" style={`background:${gradients[i % gradients.length]}`}></div>
+            <div>
+              <div class="text-sm font-medium">{t.name}</div>
+              <div class="mt-0.5 text-xs text-ink-soft">{t.role}</div>
+            </div>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-head {
+    font-weight: 400;
+    font-size: clamp(44px, 5.6vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+</style>

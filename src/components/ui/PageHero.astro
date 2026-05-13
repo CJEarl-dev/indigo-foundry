@@ -1,0 +1,52 @@
+---
+type Props = {
+  eyebrow?: string;
+  title: string;
+  description?: string;
+};
+
+const { eyebrow, title, description } = Astro.props;
+---
+
+<section class="page-hero">
+  <div class="wrap">
+    {eyebrow && <span class="pill-tag">{eyebrow}</span>}
+    <h1 class="animate-fade-up" set:html={title} />
+    {description && <p>{description}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    padding: 100px 0 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);
+  }
+  .page-hero h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    margin-top: 20px;
+  }
+  .page-hero h1 :global(em) {
+    font-style: italic;
+    color: var(--ink-2);
+  }
+  .page-hero p {
+    margin: 28px auto 0;
+    max-width: 640px;
+    font-size: 19px;
+    color: var(--ink-2);
+  }
+</style>

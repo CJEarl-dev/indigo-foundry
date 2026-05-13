@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/contact/ContactForm.astro';
+import ContactInfo from '../components/contact/ContactInfo.astro';
+
+// A short FAQ to handle the most common first questions without a reply round-trip.
+const faqs = [
+  {
+    q: 'How fast do you reply?',
+    a: 'Within one business day — usually the same day if you write before noon ET.',
+  },
+  {
+    q: 'What is a typical project size?',
+    a: 'Most engagements run $30k–$120k and 4–10 weeks. We also take smaller scoped sprints when the fit is right.',
+  },
+  {
+    q: 'Do you work with startups?',
+    a: 'Yes — about half our book is early-stage. We keep a few slots a year for pre-seed teams at a friendlier rate.',
+  },
+  {
+    q: 'Can you work with our existing team?',
+    a: 'Absolutely. We plug in alongside in-house designers, PMs, and engineers all the time.',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact"
+  description="Tell us about your project. We reply within one business day."
+>
+  <section class="relative overflow-hidden pt-[100px] pb-10 text-center">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+    ></div>
+
+    <div class="wrap">
+      <span class="pill-tag">Contact</span>
+      <h1 class="contact-hero-head animate-fade-up mt-5 font-serif">
+        Let&rsquo;s <span class="mark-hl">talk.</span>
+      </h1>
+      <p class="mx-auto mt-7 max-w-[560px] text-[19px] text-ink-2">
+        Whether you&rsquo;re launching something new or rebuilding what you have, we&rsquo;d love
+        to hear about it.
+      </p>
+    </div>
+  </section>
+
+  <section class="pt-[60px] pb-[100px]">
+    <div class="wrap">
+      <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-[1.2fr_.8fr] lg:gap-[60px]">
+        <div>
+          <span class="eyebrow">Tell us about the project</span>
+          <h2 class="contact-form-head mt-3 mb-10 font-serif">
+            A few details <em>get us started.</em>
+          </h2>
+          <ContactForm />
+        </div>
+        <ContactInfo />
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line bg-bg-2 py-[100px]">
+    <div class="wrap">
+      <div class="mb-10 max-w-[700px]">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="faq-head mt-3 font-serif">
+          Answers to the <em>usual questions.</em>
+        </h2>
+      </div>
+      <ul class="faq-list border-t border-line">
+        {faqs.map((item) => (
+          <li class="border-b border-line">
+            <details>
+              <summary class="flex cursor-pointer items-center justify-between gap-6 px-1 py-[22px] font-serif text-[18px] tracking-[-0.01em] text-ink sm:text-[22px]">
+                <span>{item.q}</span>
+                <span class="icon shrink-0 font-sans text-[22px] font-normal transition-transform duration-200" aria-hidden="true">+</span>
+              </summary>
+              <div class="faq-answer">
+                <p class="max-w-[640px] px-1 pb-6 text-base leading-[1.65] text-ink-2">{item.a}</p>
+              </div>
+            </details>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Fluid hero */
+  .contact-hero-head {
+    font-weight: 400;
+    font-size: clamp(72px, 12vw, 180px);
+    line-height: .9;
+    letter-spacing: -0.02em;
+  }
+
+  /* Fluid section heads */
+  .contact-form-head {
+    font-weight: 400;
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .contact-form-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  .faq-head {
+    font-weight: 400;
+    font-size: clamp(40px, 5vw, 72px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .faq-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Disclosure marker control + open-state rotation */
+  .faq-list summary::-webkit-details-marker { display: none; }
+  .faq-list summary { list-style: none; }
+  .faq-list details[open] summary .icon { transform: rotate(45deg); }
+
+  /* Smooth FAQ answer reveal — grid-rows trick + fade-in
+     We force the answer wrapper to always render (overriding UA `display: none`
+     on closed <details> children) so the height + opacity can animate.
+     grid-template-rows: 0fr → 1fr + overflow-hidden on the inner child
+     gives a clean expand/collapse without JS. */
+  .faq-list details > .faq-answer {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows .3s ease, opacity .25s ease;
+  }
+  .faq-list details[open] > .faq-answer {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .faq-list details > .faq-answer > p {
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* Respect reduced-motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    .faq-list details > .faq-answer,
+    .faq-list details[open] summary .icon {
+      transition: none;
+    }
+  }
+</style>

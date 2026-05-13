@@ -1,0 +1,381 @@
+/*
+ * Google Fonts are loaded via <link> in BaseLayout.astro for better LCP
+ * (a CSS @import url(...) is render-blocking and serial; <link> is parallel).
+ */
+@import "tailwindcss";
+
+/* =============================================================
+   Lambda Agency — Tailwind design tokens (v4 @theme)
+   These tokens become utilities: bg-ink, text-muted, font-serif, etc.
+   ============================================================= */
+@theme {
+  --color-bg: #FAF8F4;
+  --color-bg-2: #F2EFE8;
+  --color-bg-3: #EAE6DC;
+  --color-ink: #141210;
+  --color-ink-2: #3A3732;
+  --color-ink-soft: #8A857C;
+  --color-muted: #76716A;
+  --color-line: #1F1D1A14;
+  --color-line-strong: #1F1D1A22;
+  --color-accent: #D8F651;
+  --color-accent-2: #C5E03A;
+  --color-accent-ink: #1A1F00;
+  --color-warm: #E8DFC9;
+  --color-card: #FFFFFF;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
+  --font-script: 'Caveat', cursive;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --default-font-family: var(--font-sans);
+}
+
+/* Legacy short aliases — keep so any remaining scoped CSS referencing
+   var(--ink), var(--serif), etc. keeps working during migration. */
+:root {
+  --bg: var(--color-bg);
+  --bg-2: var(--color-bg-2);
+  --bg-3: var(--color-bg-3);
+  --ink: var(--color-ink);
+  --ink-2: var(--color-ink-2);
+  --muted: var(--color-muted);
+  --line: var(--color-line);
+  --line-2: var(--color-line-strong);
+  --line-strong: var(--color-line-strong);
+  --accent: var(--color-accent);
+  --accent-2: var(--color-accent-2);
+  --accent-ink: var(--color-accent-ink);
+  --warm: var(--color-warm);
+  --card: var(--color-card);
+  --serif: var(--font-serif);
+  --sans: var(--font-sans);
+  --script: var(--font-script);
+  --mono: var(--font-mono);
+}
+
+/* =============================================================
+   Base layer — minimal resets beyond Tailwind's preflight
+   ============================================================= */
+@layer base {
+  html, body {
+    background: var(--color-bg);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body { font-size: 16px; line-height: 1.55; }
+  h1, h2, h3, h4, h5, h6 { font-weight: 400; }
+  a { color: inherit; text-decoration: none; }
+
+  ::selection { background: var(--color-accent); color: var(--color-accent-ink); }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+/* =============================================================
+   Components layer — reusable classes kept because they're
+   either heavily shared or too complex for pure Tailwind utilities.
+   ============================================================= */
+@layer components {
+
+  /* ---------- Layout wrappers ---------- */
+  .wrap {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 32px;
+  }
+  @media (max-width: 900px) {
+    .wrap { padding-inline: 20px; }
+  }
+
+  /* ---------- Hand-drawn highlight (complex clip-path) ---------- */
+  .mark-hl {
+    position: relative;
+    display: inline-block;
+    font-style: italic;
+    padding: 0 .05em;
+    white-space: nowrap;
+    /* Local stacking context — keeps the z-index:-1 highlight from
+       slipping behind ancestor backgrounds (e.g. card bg). */
+    isolation: isolate;
+  }
+  .mark-hl::before {
+    content: '';
+    position: absolute;
+    left: -0.08em;
+    right: -0.08em;
+    top: 18%;
+    bottom: 8%;
+    background: var(--color-accent);
+    z-index: -1;
+    border-radius: 8px 14px 10px 18px / 18px 10px 16px 12px;
+    transform: rotate(-0.8deg) skewX(-3deg);
+    box-shadow:
+      0 0 0 1px var(--color-accent),
+      inset 0 -4px 6px #c5e03a55;
+    clip-path: polygon(
+      1% 10%, 3% 4%, 12% 6%, 24% 2%, 40% 5%, 55% 1%, 70% 4%, 84% 2%, 96% 6%, 99% 14%,
+      98% 40%, 99% 65%, 97% 88%, 99% 97%,
+      88% 94%, 70% 98%, 55% 95%, 40% 99%, 25% 96%, 12% 98%, 3% 95%, 1% 90%,
+      2% 70%, 0% 45%, 2% 22%
+    );
+  }
+  .mark-hl.rot-r::before { transform: rotate(0.9deg) skewX(-2deg); }
+  .mark-hl.rot-l::before { transform: rotate(-1.2deg) skewX(-3deg); }
+
+  /* ---------- Logo (mixed fonts, used in Navbar + Footer) ---------- */
+  .logo {
+    display: inline-flex;
+    align-items: flex-end;
+    position: relative;
+    line-height: 0.9;
+  }
+  .logo .mark {
+    font-family: var(--font-sans);
+    font-size: 20px;
+    letter-spacing: 0.04em;
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .logo .mark em { font-style: normal; font-weight: 600; }
+  .logo .tag {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-style: italic;
+    color: var(--color-ink-2);
+    letter-spacing: 1px;
+    font-weight: 400;
+  }
+  .logo-big .mark { font-size: 42px; }
+  .logo-big .tag { font-size: 28px; transform: translateY(4px); }
+
+  /* ---------- Pill tag (kicker with accent dot) ---------- */
+  .pill-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .pill-tag::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+
+  /* ---------- Eyebrow (section kicker with em-dash) ---------- */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .eyebrow::before { content: '— '; opacity: .7; }
+
+  /* ---------- Script note (hand-drawn annotations) ---------- */
+  .note {
+    font-family: var(--font-script);
+    font-size: 24px;
+    color: var(--color-ink);
+    line-height: 1.1;
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .note-lg { font-size: 32px; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform .15s, background .2s, color .2s, border-color .2s;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .btn:active { transform: scale(.98); }
+
+  .btn-primary {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border: 1px solid var(--color-ink);
+  }
+  .btn-primary:hover {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border-color: var(--color-accent);
+  }
+  .btn-primary .arrow { transition: transform .2s; }
+  .btn-primary:hover .arrow { transform: translate(3px, -3px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--color-ink);
+    border: 1px solid var(--color-line-strong);
+  }
+  .btn-ghost:hover {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border-color: var(--color-ink);
+  }
+
+  .btn-accent {
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    border: 1px solid var(--color-accent);
+  }
+  .btn-accent:hover { background: var(--color-accent-2); border-color: var(--color-accent-2); }
+
+  /* ---------- Placeholder media (complex diagonal stripes + gradients) ---------- */
+  .ph {
+    position: relative;
+    background:
+      repeating-linear-gradient(135deg, #14121008 0 10px, transparent 10px 20px),
+      linear-gradient(135deg, #1B1A17, #2A2823);
+    color: #FAF8F4;
+    border-radius: 18px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 28px;
+    aspect-ratio: 16 / 10;
+  }
+  .ph::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(120% 80% at 80% 0%, #D8F65118 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .ph .ph-label {
+    position: relative;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: #FAF8F480;
+  }
+  .ph .ph-title {
+    position: relative;
+    font-family: var(--font-serif);
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+  .ph-light {
+    background:
+      repeating-linear-gradient(135deg, #14121008 0 10px, transparent 10px 20px),
+      var(--color-bg-3);
+    color: var(--color-ink);
+  }
+  .ph-light .ph-label { color: var(--color-muted); }
+  .ph-light::after {
+    background: radial-gradient(120% 80% at 80% 0%, #D8F65122 0%, transparent 50%);
+  }
+
+  /* ---------- Filter chips ---------- */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--color-ink-2);
+    background: var(--color-bg);
+    transition: all .2s;
+    cursor: pointer;
+  }
+  .chip:hover { background: var(--color-bg-2); }
+  .chip.is-active,
+  .chip.active {
+    background: var(--color-ink);
+    color: var(--color-bg);
+    border-color: var(--color-ink);
+  }
+
+  /* ---------- Annotations (absolute SVG arrows + script note) ---------- */
+  .annotate {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .annotate svg { overflow: visible; }
+  .annotate svg path { vector-effect: non-scaling-stroke; }
+
+  /* ---------- Background patterns ---------- */
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, #14121008 1px, transparent 1px),
+      linear-gradient(to bottom, #14121008 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .dots-bg {
+    background-image: radial-gradient(#14121018 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  /* ---------- Skip link (a11y) ---------- */
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 16px;
+    background: var(--color-ink);
+    color: var(--color-bg);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    z-index: 100;
+    transition: top .2s;
+  }
+  .skip-link:focus { top: 16px; }
+}
+
+/* =============================================================
+   Animations (keyframes must live outside @layer for broad support)
+   ============================================================= */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse-dot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%      { transform: scale(1.2); opacity: .6; }
+}
+.animate-fade-up {
+  animation: fade-up .7s cubic-bezier(.2,.65,.25,1) both;
+}
+.animate-fade-in {
+  animation: fade-in .6s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

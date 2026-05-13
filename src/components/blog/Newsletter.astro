@@ -1,0 +1,84 @@
+---
+// Newsletter CTA — dark section with email signup, used at the bottom of blog posts
+type Props = {
+  eyebrow?: string;
+  titleHtml?: string;
+  description?: string;
+  placeholder?: string;
+  buttonLabel?: string;
+  /** Endpoint for the form. Replace with Buttondown / ConvertKit / Mailchimp / etc. */
+  action?: string;
+};
+
+const {
+  eyebrow = 'Stay in the loop',
+  titleHtml = 'Get new essays <em>in your inbox.</em>',
+  description = 'We send a short email once a month — no spam, unsubscribe anytime.',
+  placeholder = 'you@company.com',
+  buttonLabel = 'Subscribe',
+  action = '#',
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-ink py-[140px] text-center text-[#FAF8F4] max-lg:py-[100px]">
+  <!-- Soft lime glow at the bottom for depth -->
+  <div
+    class="pointer-events-none absolute inset-0"
+    style="background: radial-gradient(50% 70% at 50% 0%, #D8F65118 0%, transparent 70%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="relative mx-auto max-w-[800px] px-8">
+    <!-- Eyebrow with lime bullet -->
+    <span class="inline-flex items-center gap-2.5 font-mono text-[11px] tracking-[.18em] text-[#FAF8F480] uppercase">
+      <span class="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true"></span>
+      {eyebrow}
+    </span>
+
+    <h2 class="newsletter-head mt-5 font-serif text-[#FAF8F4]" set:html={titleHtml} />
+
+    <p class="mx-auto mt-5 max-w-[560px] text-[17px] leading-[1.5] text-[#FAF8F4]/65">
+      {description}
+    </p>
+
+    <form
+      method="POST"
+      action={action}
+      class="mx-auto mt-9 flex w-full max-w-[480px] items-center gap-1 rounded-full border border-white/10 bg-[#0E0D0B] p-1.5"
+      aria-label="Newsletter signup"
+    >
+      <label for="newsletter-email" class="sr-only">Email address</label>
+      <input
+        id="newsletter-email"
+        name="email"
+        type="email"
+        required
+        autocomplete="email"
+        placeholder={placeholder}
+        class="min-w-0 flex-1 bg-transparent px-5 py-2.5 text-[15px] text-[#FAF8F4] placeholder:text-[#FAF8F4]/45 focus:outline-none"
+      />
+      <button
+        type="submit"
+        class="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-[14px] font-medium text-accent-ink transition-transform duration-150 hover:scale-[1.02] active:scale-[0.98]"
+      >
+        {buttonLabel}
+        <span aria-hidden="true">→</span>
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+  /* Fluid headline */
+  .newsletter-head {
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  /* The accented italic chunk inside the title */
+  .newsletter-head :global(em) {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+</style>

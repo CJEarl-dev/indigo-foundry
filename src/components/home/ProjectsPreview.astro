@@ -1,0 +1,88 @@
+---
+// Recent projects — 3-up card deck with dark gradient covers and info plate below
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const all = await getCollection('projects');
+const featured = all
+  .filter((p) => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 3);
+
+const year = (d: Date) => new Date(d).getFullYear();
+---
+
+<section class="relative bg-bg-2 pt-10 pb-[140px]">
+  <div class="wrap">
+    <div class="grid grid-cols-1 items-end gap-8 pt-20 pb-14 md:grid-cols-[1fr_auto]">
+      <div class="flex flex-col gap-4">
+        <span class="eyebrow text-ink">Selected work</span>
+        <h2 class="projects-head font-serif">Recent <em>projects.</em></h2>
+      </div>
+      <a class="btn btn-ghost justify-self-start md:justify-self-end" href="/projects">All projects →</a>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
+      {featured.map((project) => (
+        <a
+          class="project-card group relative flex aspect-[4/5] flex-col overflow-hidden rounded-[20px] border border-black/10 text-inherit duration-300 hover:shadow-[0_30px_60px_-30px_#14121050]"
+          href={`/projects/${project.id}`}
+        >
+          <div class="relative flex-1 overflow-hidden">
+            {project.data.image && (
+              <Image
+                src={project.data.image}
+                alt={project.data.title}
+                class="absolute inset-0 h-full w-full object-cover group-hover:scale-105 duration-300"
+                widths={[600, 900]}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
+            )}
+            <!-- Dark overlay — keeps text legible over any image -->
+            <div class="absolute inset-0 bg-gradient-to-t from-[#141210]/80 via-[#141210]/20 to-transparent"></div>
+            <div class="absolute top-5 left-5 font-mono text-[11px] tracking-[.18em] text-[#FAF8F480] uppercase">
+              {project.data.client} · {project.data.category} · {year(project.data.date)}
+            </div>
+          </div>
+          <div class="border-t border-black/10 bg-bg px-6 py-[22px]">
+            <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">
+              {project.data.category} · {project.data.client}
+            </div>
+            <h3 class="mt-1.5 font-sans text-[17px] font-medium leading-[1.3] tracking-[-0.005em] text-ink">
+              {project.data.title}
+            </h3>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fluid heading */
+  .projects-head {
+    font-weight: 400;
+    font-size: clamp(44px, 5.6vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .projects-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Dark gradient base — shows when no image, sits behind image when one exists */
+  .project-card {
+    background:
+      radial-gradient(80% 120% at 20% 10%, #D8F65128, transparent 60%),
+      repeating-linear-gradient(135deg, #14121008 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, #1B1A17, #2B2721 50%, #1B1A17);
+  }
+  /* Fine grid overlay on the dark preview area */
+  .project-card .preview::before {
+    content: '';
+    position: absolute; inset: 0; z-index: 1;
+    background-image:
+      linear-gradient(to right, #FAF8F408 1px, transparent 1px),
+      linear-gradient(to bottom, #FAF8F408 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+  }
+</style>

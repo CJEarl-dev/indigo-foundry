@@ -1,0 +1,274 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTA from '../../components/home/CTA.astro';
+
+export async function getStaticPaths() {
+  const projects = (await getCollection('projects')).sort(
+    (a, b) => a.data.order - b.data.order || b.data.date.valueOf() - a.data.date.valueOf()
+  );
+  return projects.map((project, index) => ({
+    params: { slug: project.id },
+    props: {
+      project,
+      prev: projects[index - 1] ?? null,
+      next: projects[index + 1] ?? null,
+    },
+  }));
+}
+
+const { project, prev, next } = Astro.props;
+const { Content } = await render(project);
+const { title, client, category, date, description, image, cover, gallery, results, website } = project.data;
+const heroImage = cover ?? image;
+
+const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+const year = new Date(date).getFullYear();
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  type="article"
+  publishedTime={date}
+>
+  <!-- Hero -->
+  <section class="relative overflow-hidden pt-20 pb-[60px]">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(50% 60% at 50% 0%, #D8F65120 0%, transparent 70%);"
+    ></div>
+
+    <div class="wrap">
+      <div class="grid grid-cols-1 items-end gap-10 lg:grid-cols-[1.2fr_.8fr] lg:gap-[60px]">
+        <div>
+          <span class="pill-tag">{category} · {year}</span>
+          <h1 class="project-head-title mt-4 font-serif">{title}</h1>
+          <p class="mt-6 max-w-[620px] text-[19px] leading-[1.5] text-ink-2">{description}</p>
+        </div>
+        <div class="grid grid-cols-2 gap-6 rounded-2xl border border-line bg-card p-6">
+          <div><div class="meta-k">Client</div><div class="meta-v">{client}</div></div>
+          <div><div class="meta-k">Services</div><div class="meta-v">{category}</div></div>
+          <div><div class="meta-k">Launched</div><div class="meta-v">{formattedDate}</div></div>
+          {website ? (
+            <div><div class="meta-k">Live site</div><div class="meta-v"><a class="border-b border-ink" href={website} rel="noopener">Visit ↗</a></div></div>
+          ) : (
+            <div><div class="meta-k">Status</div><div class="meta-v">Shipped</div></div>
+          )}
+        </div>
+      </div>
+
+      <div
+        class="project-cover relative mt-[60px] aspect-video overflow-hidden rounded-3xl border border-black/10 shadow-[0_40px_80px_-30px_#14121040]"
+      >
+        {heroImage ? (
+          <Image
+            src={heroImage}
+            alt={`${title} cover image`}
+            widths={[800, 1200, 1800]}
+            sizes="(max-width: 768px) 100vw, 1200px"
+            class="absolute inset-0 h-full w-full object-cover"
+            loading="eager"
+          />
+        ):(
+        // Subtle gradient so the corner overlays stay legible over any image
+        <div class="pointer-events-none absolute inset-0 bg-gradient-to-b from-[#141210]/20 via-transparent to-[#141210]/40" aria-hidden="true"></div>
+        <div class="absolute top-8 right-8 font-serif text-[22px] italic text-[#FAF8F4] opacity-60">
+          — a canvas for the launch
+        </div>
+        )
+      }
+        <div class="absolute bottom-8 left-8 font-mono text-[11px] tracking-[.18em] text-[#FAF8F4] uppercase opacity-70">
+          {client} · {category} · {year}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Body -->
+  <section class="py-[120px] max-md:py-20">
+    <div class="wrap">
+      <div class="grid grid-cols-1 gap-10 lg:grid-cols-[2fr_1fr] lg:gap-20">
+        <article class="project-prose">
+          <Content />
+        </article>
+        <aside class="self-start lg:sticky lg:top-[100px]">
+          <div class="grid grid-cols-1 gap-6 rounded-2xl border border-line bg-card p-6">
+            <div><div class="meta-k">Client</div><div class="meta-v">{client}</div></div>
+            <div><div class="meta-k">Year</div><div class="meta-v">{year}</div></div>
+            <div><div class="meta-k">Team</div><div class="meta-v">3 designers · 2 engineers</div></div>
+            <div><div class="meta-k">Stack</div><div class="meta-v">Astro · CMS</div></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  {gallery.length > 0 && (
+    <section class="bg-bg-2 py-[120px] max-md:py-20">
+      <div class="wrap">
+        <span class="eyebrow">Gallery</span>
+        <h2 class="mt-3 font-serif text-[44px] tracking-[-0.01em]">
+          A few <em class="italic text-ink-2">selects</em> from the build.
+        </h2>
+        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {gallery.map((_, i) => (
+            <div
+              class:list={[
+                'ph',
+                i === 1 ? 'aspect-[4/5] md:row-span-2' : 'aspect-[4/3]',
+                i === 2 && 'ph-light',
+              ]}
+            >
+              <div>
+                <div class="ph-label">
+                  {['Homepage hero', 'Mobile flow', 'Pricing page', 'Blog template'][i] ?? `Gallery ${i + 1}`}
+                </div>
+                <div class="ph-title">Gallery {String.fromCharCode(65 + i)}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Results -->
+  {results.length > 0 && (
+    <section class="py-[120px] max-md:py-20">
+      <div class="wrap">
+        <span class="eyebrow">Results</span>
+        <h2 class="results-head mt-3 max-w-[800px] font-serif">
+          Six weeks of work, a <em>year of impact.</em>
+        </h2>
+        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {results.map((r, i) => (
+            <div class="rounded-[20px] border border-line bg-card p-10">
+              <div class="text-[64px] leading-none tracking-[-0.02em]">
+                {i === 0 ? <span class="mark-hl">{r.value}</span> : r.value}
+              </div>
+              <div class="mt-5 text-sm text-muted">{r.metric}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Next / prev -->
+  <section class="wrap">
+    <nav
+      class="flex flex-wrap items-center justify-between gap-5 border-t border-line py-10"
+      aria-label="Project navigation"
+    >
+      {prev ? (
+        <a class="project-nav-link" href={`/projects/${prev.id}`}>← {prev.data.title}</a>
+      ) : (
+        <a class="project-nav-link" href="/projects">← All projects</a>
+      )}
+      {next ? (
+        <a class="project-nav-link" href={`/projects/${next.id}`}>{next.data.title} →</a>
+      ) : (
+        <a class="project-nav-link" href="/projects">All projects →</a>
+      )}
+    </nav>
+  </section>
+
+  <CTA
+    eyebrow="Have something similar?"
+    titleHtml={'Tell us about <em>your project.</em>'}
+    description="We'll reply with a rough plan, timeline, and a realistic estimate."
+    primaryLabel="Get in touch"
+    primaryHref="/contact"
+    secondaryLabel=""
+    secondaryHref=""
+    showAnnotation={false}
+  />
+</BaseLayout>
+
+<style>
+  /* Meta list cells */
+  .meta-k {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+  }
+  .meta-v {
+    margin-top: 6px;
+    font-size: 15px;
+    color: var(--color-ink);
+  }
+
+  /* Fluid hero title */
+  .project-head-title {
+    font-weight: 400;
+    font-size: clamp(44px, 6.5vw, 96px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+  }
+  .project-head-title :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Multi-layer gradient cover — not worth expressing as arbitrary Tailwind */
+  .project-cover {
+    background:
+      radial-gradient(80% 120% at 20% 10%, #D8F65128, transparent 60%),
+      repeating-linear-gradient(135deg, #14121008 0 12px, transparent 12px 24px),
+      linear-gradient(135deg, #1B1A17, #2B2721 50%, #1B1A17);
+  }
+
+  /* Prose (Markdown output) — global selectors for rendered content */
+  .project-prose :global(h2),
+  .project-prose :global(h3) {
+    font-family: var(--font-serif);
+    font-size: 32px;
+    font-weight: 400;
+    margin-top: 36px;
+    letter-spacing: -0.01em;
+  }
+  .project-prose :global(h2:first-child),
+  .project-prose :global(h3:first-child) { margin-top: 0; }
+  .project-prose :global(p) {
+    color: var(--color-ink-2);
+    margin-top: 14px;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .project-prose :global(ul),
+  .project-prose :global(ol) {
+    margin-top: 14px;
+    padding-left: 18px;
+    color: var(--color-ink-2);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .project-prose :global(li) { margin-top: 6px; }
+  .project-prose :global(strong) { color: var(--color-ink); font-weight: 600; }
+
+  /* Fluid results heading */
+  .results-head {
+    font-weight: 400;
+    font-size: clamp(44px, 5.6vw, 84px);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .results-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Sans-serif prev/next link (per feedback) with animated underline */
+  .project-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    padding: 6px 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .project-nav-link:hover { border-bottom-color: var(--color-ink); }
+</style>

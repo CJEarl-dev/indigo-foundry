@@ -1,0 +1,34 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostCard from './PostCard.astro';
+
+type Props = { posts: CollectionEntry<'blog'>[] };
+const { posts } = Astro.props;
+---
+
+{posts.length > 0 && (
+  <section class="border-t border-line bg-bg-2 py-[100px]">
+    <div class="wrap">
+      <span class="eyebrow">Related reading</span>
+      <h2 class="related-head mt-3 font-serif">
+        More from the <em>field notes.</em>
+      </h2>
+      <ul class="mt-10 grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => (
+          <li><PostCard post={post} /></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+)}
+
+<style>
+  /* Fluid heading */
+  .related-head {
+    font-weight: 400;
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .related-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+</style>

@@ -1,0 +1,144 @@
+---
+// Projects grid — irregular 6-col mosaic with functional category filter
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+
+type Props = { projects: CollectionEntry<'projects'>[] };
+const { projects } = Astro.props;
+
+const categories = ['All', 'Web', 'Branding', 'SEO', 'UI/UX', 'E-commerce'] as const;
+
+// First card = hero (featured). Others alternate default/wide for visual rhythm
+// across the 6-column mosaic (default = 2 cols, wide = 3 cols, hero = 4 cols).
+function spanFor(index: number) {
+  if (index === 0) return 'hero' as const;
+  const rem = index - 1;
+  const rowPattern = Math.floor(rem / 2) % 2 === 0;
+  return rem % 2 === (rowPattern ? 0 : 1) ? 'default' : 'wide';
+}
+
+// Tailwind-safe span classes (both col-span and aspect-ratio per variant)
+const spanClasses = {
+  hero: 'col-span-6 lg:col-span-4',
+  wide: 'col-span-6 lg:col-span-3',
+  default: 'col-span-6 lg:col-span-2',
+} as const;
+const phAspectClasses = {
+  hero: 'aspect-video',
+  wide: 'aspect-[16/10]',
+  default: 'aspect-[4/3]',
+} as const;
+
+const year = (d: Date) => new Date(d).getFullYear();
+---
+
+<section class="pt-0 pb-[120px] max-md:pb-20">
+  <div class="wrap">
+    <div
+      class="mt-4 mb-14 flex flex-wrap justify-center gap-2.5"
+      role="tablist"
+      aria-label="Filter projects by category"
+      data-project-filter
+    >
+      {categories.map((cat, i) => (
+        <button
+          type="button"
+          role="tab"
+          class:list={['chip', i === 0 && 'is-active']}
+          data-filter={cat}
+          aria-selected={i === 0 ? 'true' : 'false'}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-6 gap-6" data-project-grid>
+      {projects.map((project, i) => {
+        const span = spanFor(i);
+        const showDescription = span !== 'default';
+        const tile = project.data.cover ?? project.data.image;
+        return (
+          <a
+            class:list={['work-card group relative block text-inherit', spanClasses[span]]}
+            href={`/projects/${project.id}`}
+            data-category={project.data.category}
+          >
+            <div
+              class:list={[
+                'ph relative mb-4 overflow-hidden transition-transform duration-300 group-hover:-translate-y-1.5',
+                phAspectClasses[span],
+                tile && 'bg-none'
+              ]}
+            >
+              {tile && (
+                <Image
+                  src={tile}
+                  alt={project.data.title}
+                  widths={[400, 700, 1200]}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  class="absolute inset-0 z-0 h-full w-full object-cover"
+                />
+              )}
+              <!-- Bottom-up gradient so the label/title remain readable over any image -->
+              {tile && (
+                <div class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-[#141210]/70 via-[#141210]/15 to-transparent" aria-hidden="true"></div>
+              )}
+              <div class="relative z-[2]">
+                <div class="ph-label">{span === 'hero' ? 'Featured · ' : ''}{project.data.category}</div>
+                <div class="ph-title">{project.data.client}</div>
+              </div>
+            </div>
+            <div class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">
+              {project.data.category} · {year(project.data.date)}
+            </div>
+            <h3 class="mt-1.5 font-serif text-[22px] leading-[1.1] tracking-[-0.01em] lg:text-[26px]">
+              {project.data.title}
+            </h3>
+            {showDescription && (
+              <p class="mt-2 max-w-[460px] text-sm leading-[1.5] text-ink-2">
+                {project.data.description}
+              </p>
+            )}
+          </a>
+        );
+      })}
+    </div>
+
+    <p class="mt-14 text-center text-sm text-muted" data-empty hidden>
+      No projects in this category yet — check back soon.
+    </p>
+  </div>
+</section>
+
+<script>
+  function initProjectFilter() {
+    const filter = document.querySelector<HTMLElement>('[data-project-filter]');
+    const grid = document.querySelector<HTMLElement>('[data-project-grid]');
+    const empty = document.querySelector<HTMLElement>('[data-empty]');
+    if (!filter || !grid) return;
+
+    filter.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const button = target.closest<HTMLButtonElement>('button[data-filter]');
+      if (!button) return;
+
+      filter.querySelectorAll<HTMLButtonElement>('button[data-filter]').forEach((b) => {
+        const active = b === button;
+        b.setAttribute('aria-selected', String(active));
+        b.classList.toggle('is-active', active);
+      });
+
+      const value = button.dataset.filter!;
+      let visible = 0;
+      grid.querySelectorAll<HTMLElement>('[data-category]').forEach((card) => {
+        const show = value === 'All' || card.dataset.category === value;
+        card.hidden = !show;
+        if (show) visible += 1;
+      });
+      if (empty) empty.hidden = visible !== 0;
+    });
+  }
+  initProjectFilter();
+  document.addEventListener('astro:page-load', initProjectFilter);
+</script>

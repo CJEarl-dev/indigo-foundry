@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import { site } from '../data/site';
+
+// Replace the placeholder copy below with your real Terms of Service. The
+// structure follows a standard outline (acceptance, use of the service, IP,
+// liability, governing law, contact). Keep `lastUpdated` current. Consult a
+// lawyer in your jurisdiction before publishing.
+const lastUpdated = 'April 26, 2026';
+---
+
+<BaseLayout
+  title="Terms of Service"
+  description="The terms that govern your use of this site."
+>
+  <PageHero
+    eyebrow="Legal"
+    title="Terms of <em>Service.</em>"
+    description={`Last updated: ${lastUpdated}`}
+  />
+
+  <section class="pb-[120px]">
+    <div class="wrap">
+      <article class="legal-prose mx-auto max-w-[720px] text-[17px] leading-[1.7] text-ink-2">
+        <p class="lead">
+          This is placeholder copy. Replace every section with terms that reflect
+          your real agreement with users of <strong>{site.name}</strong>. Consult a
+          lawyer in your jurisdiction before publishing.
+        </p>
+
+        <h2>1. Acceptance of terms</h2>
+        <p>
+          By accessing or using this site, you agree to be bound by these terms.
+          If you do not agree, do not use the site.
+        </p>
+
+        <h2>2. Use of the service</h2>
+        <p>
+          Describe what visitors are allowed and not allowed to do — scraping,
+          automated access, reverse engineering, infringing content, etc.
+        </p>
+
+        <h2>3. Intellectual property</h2>
+        <p>
+          State who owns the content on the site (copy, code, design, images),
+          what license visitors receive (typically: read-only, personal use),
+          and how trademarks are protected.
+        </p>
+
+        <h2>4. User submissions</h2>
+        <p>
+          If users send anything (contact forms, comments, files), explain who
+          owns those submissions and what you're allowed to do with them.
+        </p>
+
+        <h2>5. Disclaimers</h2>
+        <p>
+          The site is provided "as is" without warranties of any kind. Tailor
+          this section to your situation — for example, if you publish opinion
+          articles, clarify that nothing is professional advice.
+        </p>
+
+        <h2>6. Limitation of liability</h2>
+        <p>
+          Cap the damages you would owe a user in the event of a problem.
+          Jurisdictions vary on what's enforceable here; lawyer territory.
+        </p>
+
+        <h2>7. Changes to these terms</h2>
+        <p>
+          You may update these terms from time to time. Material changes will be
+          announced on this page; continued use of the site constitutes acceptance.
+        </p>
+
+        <h2>8. Governing law</h2>
+        <p>
+          State which jurisdiction's laws govern the agreement and where disputes
+          must be resolved.
+        </p>
+
+        <h2>9. Contact</h2>
+        <p>
+          Questions about these terms? Email us at <a href={`mailto:${site.email}`}>{site.email}</a>.
+        </p>
+      </article>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Article typography — kept local because legal pages are the only place we
+     render long-form prose without MDX/content-collection styling. */
+  .legal-prose .lead {
+    font-size: 19px;
+    color: var(--color-ink);
+    margin-bottom: 36px;
+  }
+  .legal-prose h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    color: var(--color-ink);
+    margin: 48px 0 16px;
+  }
+  .legal-prose p { margin: 0 0 18px; }
+  .legal-prose a {
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-line);
+    transition: border-color .15s ease;
+  }
+  .legal-prose a:hover { border-color: var(--color-ink); }
+  .legal-prose strong { color: var(--color-ink); font-weight: 600; }
+</style>

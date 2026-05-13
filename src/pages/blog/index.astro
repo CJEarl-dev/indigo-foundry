@@ -1,0 +1,114 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeaturedPost from '../../components/blog/FeaturedPost.astro';
+import PostCard from '../../components/blog/PostCard.astro';
+import Newsletter from '../../components/blog/Newsletter.astro';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const [featured, ...rest] = posts;
+
+// Build a unique, sorted list of categories for the filter
+const categories = ['All', ...Array.from(new Set(rest.map((p) => p.data.category)))];
+---
+
+<BaseLayout
+  title="Blog"
+  description="Essays and field notes on design, engineering, SEO, and running a small agency."
+>
+  <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+    ></div>
+
+    <div class="wrap">
+      <span class="pill-tag">Blog</span>
+      <h1 class="page-hero-head animate-fade-up mt-5 font-serif">
+        Field <em>notes.</em>
+      </h1>
+      <p class="mx-auto mt-7 max-w-[560px] text-[19px] text-ink-2">
+        Writing about the craft, business, and daily practice of shipping great digital work.
+      </p>
+    </div>
+  </section>
+
+  {featured && <FeaturedPost post={featured} />}
+
+  {rest.length > 0 && (
+    <section class="all-posts pt-5 pb-[120px]">
+      <div class="wrap">
+        <div class="mb-10 flex flex-wrap items-center justify-between gap-5">
+          <span class="eyebrow">All articles</span>
+          <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter by category">
+            {categories.map((cat) => (
+              <button
+                type="button"
+                class:list={['chip', cat === 'All' && 'is-active']}
+                data-filter={cat}
+                role="tab"
+                aria-selected={cat === 'All'}
+              >{cat}</button>
+            ))}
+          </div>
+        </div>
+
+        <ul class="grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((post) => (
+            <li data-category={post.data.category}>
+              <PostCard post={post} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
+
+  <Newsletter />
+</BaseLayout>
+
+<style>
+  /* Fluid hero heading — clamp() doesn't fit Tailwind cleanly */
+  .page-hero-head {
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+  }
+  .page-hero-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Hidden filter items via [hidden] attribute */
+  .all-posts ul li[hidden] { display: none !important; }
+</style>
+
+<script>
+  // Functional category filter — rebound on every page load (for View Transitions)
+  function initBlogFilter() {
+    const chips = document.querySelectorAll<HTMLButtonElement>('.all-posts .chip');
+    const items = document.querySelectorAll<HTMLLIElement>('.all-posts ul > li');
+    if (!chips.length || !items.length) return;
+
+    chips.forEach((chip) => {
+      chip.addEventListener('click', () => {
+        const filter = chip.dataset.filter ?? 'All';
+        chips.forEach((c) => {
+          const active = c === chip;
+          c.classList.toggle('is-active', active);
+          c.setAttribute('aria-selected', active ? 'true' : 'false');
+        });
+        items.forEach((li) => {
+          const cat = li.dataset.category ?? '';
+          const show = filter === 'All' || cat === filter;
+          if (show) li.removeAttribute('hidden');
+          else li.setAttribute('hidden', '');
+        });
+      });
+    });
+  }
+
+  initBlogFilter();
+  document.addEventListener('astro:page-load', initBlogFilter);
+</script>

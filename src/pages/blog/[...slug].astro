@@ -1,0 +1,200 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AuthorCard from '../../components/blog/AuthorCard.astro';
+import RelatedPosts from '../../components/blog/RelatedPosts.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  author,
+  category,
+  tags,
+  image,
+  imageAlt,
+} = post.data;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const related = allPosts
+  .filter((p) => p.id !== post.id && p.data.category === category)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  image={typeof image === 'string' ? image : image.src}
+  type="article"
+  publishedTime={pubDate}
+  modifiedTime={updatedDate}
+  author={author}
+>
+  <article>
+    <header class="relative overflow-hidden border-b border-line pt-20 pb-10">
+      <div
+        class="pointer-events-none absolute inset-0 -z-10"
+        style="background: radial-gradient(50% 60% at 50% 0%, #D8F65118 0%, transparent 70%);"
+      ></div>
+
+      <div class="wrap mx-auto max-w-[720px]">
+        <div class="flex flex-wrap items-center gap-2.5 font-mono text-[11px] tracking-[.16em] text-muted uppercase">
+          <span class="text-ink">{category}</span>
+          <span aria-hidden="true">·</span>
+          <time datetime={pubDate.toISOString()}>{formattedDate}</time>
+          <span aria-hidden="true">·</span>
+          <span class="post-by">By <strong>{author}</strong></span>
+        </div>
+        <h1 class="post-hero-title mt-6 font-serif text-ink">{title}</h1>
+        <p class="mt-6 text-[20px] leading-[1.5] text-ink-2">{description}</p>
+      </div>
+
+      <div class="wrap">
+        <div class="mt-12 aspect-video overflow-hidden rounded-[20px] bg-bg-2">
+          <Image
+            src={image}
+            alt={imageAlt}
+            widths={[800, 1600]}
+            sizes="(max-width: 768px) 100vw, 1000px"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="wrap mx-auto max-w-[720px]">
+      <div class="post-prose pt-20 pb-10">
+        <Content />
+      </div>
+
+      {tags.length > 0 && (
+        <ul class="mt-8 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li class="rounded-full bg-bg-2 px-3.5 py-1.5 font-mono text-[12px] text-ink-2">
+              #{tag}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <div class="mt-10 mb-20">
+        <AuthorCard name={author} />
+      </div>
+    </div>
+  </article>
+
+  <RelatedPosts posts={related} />
+</BaseLayout>
+
+<style>
+  /* Author name in post meta — sans-serif per user feedback */
+  .post-by strong {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--color-ink);
+    font-size: 13px;
+    margin-left: 4px;
+  }
+
+  /* Fluid title */
+  .post-hero-title {
+    font-weight: 400;
+    font-size: clamp(40px, 5.5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+
+  /* Markdown prose — :global() selectors for rendered content */
+  .post-prose :global(h2) {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 32px;
+    letter-spacing: -0.015em;
+    margin-top: 48px;
+    color: var(--color-ink);
+  }
+  .post-prose :global(h3) {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: 24px;
+    margin-top: 32px;
+    color: var(--color-ink);
+  }
+  .post-prose :global(p) {
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-ink-2);
+  }
+  .post-prose :global(a) {
+    color: var(--color-ink);
+    border-bottom: 1px solid var(--color-ink);
+  }
+  .post-prose :global(ul),
+  .post-prose :global(ol) {
+    margin-top: 18px;
+    padding-left: 22px;
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--color-ink-2);
+  }
+  .post-prose :global(li) { margin-top: 8px; }
+  .post-prose :global(blockquote) {
+    margin: 32px 0;
+    padding-left: 24px;
+    border-left: 3px solid var(--color-accent);
+    font-family: var(--font-serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--color-ink);
+  }
+  .post-prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    background: var(--color-bg-2);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+  .post-prose :global(pre) {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--color-ink);
+    color: #FAF8F4;
+    overflow-x: auto;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .post-prose :global(pre code) {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+  .post-prose :global(strong) { color: var(--color-ink); font-weight: 600; }
+  .post-prose :global(img) {
+    margin-top: 24px;
+    border-radius: 16px;
+    width: 100%;
+  }
+</style>

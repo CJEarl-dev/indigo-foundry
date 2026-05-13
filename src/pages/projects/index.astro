@@ -1,0 +1,70 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectsGrid from '../../components/projects/ProjectsGrid.astro';
+import CTA from '../../components/home/CTA.astro';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order || b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout
+  title="Projects"
+  description="Selected client work across web design, development, SEO, and brand identity."
+>
+  <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
+    <!-- Radial ambient glow -->
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+    ></div>
+
+    <div class="wrap">
+      <span class="pill-tag">Portfolio</span>
+      <h1 class="page-hero-head animate-fade-up mt-5 font-serif">Our <em>work.</em></h1>
+      <p class="mx-auto mt-7 max-w-[640px] text-[19px] text-ink-2">
+        A selection of projects we've shipped for startups, nonprofits, and established brands.
+      </p>
+
+      <!-- Annotation: points DOWN to the grid -->
+       <div class="w-full">
+    <div class="mx-auto max-w-[1200px]">
+      <div
+        class="xannotate hidden -rotate-[4deg] items-start lg:flex"
+        style="bottom: -40px; right: 10%;"
+        aria-hidden="true"
+      >
+        <span class="note">a few of our<br/>favorites</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+          <path d="M11.674 6.77063C11.2484 6.65203 10.9996 6.21085 11.1182 5.78524C11.2368 5.35963 11.6779 5.11076 12.1036 5.22937L11.8888 6L11.674 6.77063ZM57.6658 60.4434C57.4208 60.8112 56.9242 60.9108 56.5565 60.6659L50.5638 56.6749C50.1961 56.4299 50.0965 55.9333 50.3414 55.5656C50.5863 55.1978 51.083 55.0982 51.4507 55.3432L56.7775 58.8907L60.3251 53.5639C60.57 53.1962 61.0666 53.0966 61.4343 53.3415C61.8021 53.5864 61.9017 54.083 61.6568 54.4508L57.6658 60.4434ZM11.8888 6L12.1036 5.22937C22.171 8.03492 32.3237 15.4021 40.5769 25.1712C48.836 34.9473 55.2481 47.1929 57.7843 59.8427L56.9999 60L56.2155 60.1573C53.7394 47.8071 47.464 35.8027 39.3547 26.2038C31.2394 16.5979 21.3427 9.46508 11.674 6.77063L11.8888 6Z" fill="#141210"/>
+        </svg>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+  <ProjectsGrid projects={projects} />
+
+  <CTA
+    eyebrow="Like what you see?"
+    titleHtml={'Let\u2019s build <span class="mark-hl">something</span> together.'}
+    description="Tell us about your project and we'll get back within one business day."
+    primaryLabel="Start a project"
+    primaryHref="/contact"
+    secondaryLabel="All services"
+    secondaryHref="/services"
+    showAnnotation={false}
+  />
+</BaseLayout>
+
+<style>
+  .page-hero-head {
+    font-weight: 400;
+    font-size: clamp(56px, 9vw, 140px);
+    line-height: .95;
+    letter-spacing: -0.02em;
+  }
+  .page-hero-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+</style>

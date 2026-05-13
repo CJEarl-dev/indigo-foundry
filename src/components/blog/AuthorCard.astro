@@ -1,0 +1,34 @@
+---
+// Author card — name is SANS-SERIF per feedback
+type Props = {
+  name: string;
+  bio?: string;
+};
+
+const bios: Record<string, string> = {
+  'Alex Rivera':
+    'Founder & Creative Director at Lambda. Writes about design systems and the craft of shipping brand work.',
+  'Jordan Lee':
+    'Lead engineer at Lambda. Writes about Astro, web performance, and the web platform.',
+  'Sam Chen':
+    'Strategy & SEO lead at Lambda. Writes about organic growth and measurement you can trust.',
+  'Morgan Diaz':
+    'Product designer at Lambda. Writes about usability research and interaction design.',
+};
+
+const { name, bio = bios[name] ?? 'Writer at Lambda Agency.' } = Astro.props;
+---
+
+<aside class="flex gap-5 rounded-2xl border border-line bg-card p-6">
+  <div
+    class="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-ink font-sans text-[15px] font-medium tracking-[.02em] text-bg"
+    aria-hidden="true"
+  >
+    {name.split(' ').map((s) => s[0]).join('')}
+  </div>
+  <div>
+    <p class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Written by</p>
+    <p class="mt-1.5 font-sans text-[17px] font-medium tracking-[-0.005em] text-ink">{name}</p>
+    <p class="mt-1.5 text-sm leading-[1.55] text-ink-2">{bio}</p>
+  </div>
+</aside>

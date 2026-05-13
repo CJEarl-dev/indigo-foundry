@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page not found"
+  description="The link you followed is broken, expired, or never existed."
+>
+  <section class="not-found relative flex items-center overflow-hidden py-[clamp(64px,10vh,140px)] [min-height:calc(100vh-80px)] [isolation:isolate]">
+    <!-- Dot grid bg (right-side fade) -->
+    <div class="not-found-dots absolute inset-0 -z-10" aria-hidden="true"></div>
+
+    <div class="wrap grid w-full items-center gap-[clamp(40px,6vw,96px)] max-lg:gap-12 lg:grid-cols-[1.05fr_1fr]">
+
+      <!-- Copy -->
+      <div class="max-lg:order-2">
+        <span class="eyebrow mb-7 inline-block">Error 404</span>
+
+        <h1 class="nf-title font-serif">
+          Page <em>not&nbsp;found.</em>
+        </h1>
+
+        <p class="mt-7 max-w-[460px] text-[17px] leading-[1.55] text-ink-2 [text-wrap:pretty]">
+          The link you followed is broken, expired, or never existed in the
+          first place. No worries, happens to the best of sites. Let's get
+          you back on familiar ground.
+        </p>
+
+        <div class="mt-9 inline-flex flex-wrap gap-3">
+          <a class="btn btn-primary" href="/">
+            Back to home
+            <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+              <path d="M3 11 L11 3 M5 3 H11 V9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+          </a>
+          <a class="btn btn-ghost" href="/projects">See projects</a>
+        </div>
+      </div>
+
+      <!-- Illustration -->
+      <div class="relative flex items-center justify-center max-lg:order-1">
+        <!-- Handwritten annotation -->
+        <div class="pointer-events-none absolute top-[-8px] left-[4%] z-[2] flex flex-col items-start gap-0.5 [transform:rotate(-7deg)] max-lg:top-[-20px] max-lg:left-0" aria-hidden="true">
+          <span class="note whitespace-nowrap">this shouldn't<br/>be here</span>
+          <svg class="ml-14 -mt-0.5 overflow-visible" width="120" height="80" viewBox="0 0 120 80" fill="none">
+            <path d="M8 8 C 30 30, 50 60, 92 70" stroke="#141210" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+            <path d="M78 60 L94 72 L86 56" stroke="#141210" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+
+        <!-- SVG Illustration: browser window + compass -->
+        <svg
+          class="block h-auto w-full max-w-[540px]"
+          viewBox="0 0 520 480"
+          xmlns="http://www.w3.org/2000/svg"
+          role="img"
+          aria-label="Empty browser window with a lost compass"
+        >
+          <!-- Browser window frame -->
+          <g stroke="#141210" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="40" y="60" width="440" height="360" rx="14" fill="#FAF8F4"/>
+            <line x1="40" y1="100" x2="480" y2="100"/>
+            <circle cx="64" cy="80" r="5"/>
+            <circle cx="84" cy="80" r="5"/>
+            <circle cx="104" cy="80" r="5"/>
+            <rect x="140" y="70" width="280" height="20" rx="10"/>
+          </g>
+
+          <!-- URL bar text -->
+          <text x="156" y="84" font-family="JetBrains Mono, ui-monospace, monospace" font-size="10" fill="#76716A" letter-spacing="1.2">
+            lambda.agency/—/—/—
+          </text>
+
+          <!-- Dotted grid inside the browser window -->
+          <g fill="#14121022">
+            <circle cx="100" cy="140" r="1"/><circle cx="140" cy="140" r="1"/><circle cx="180" cy="140" r="1"/>
+            <circle cx="220" cy="140" r="1"/><circle cx="260" cy="140" r="1"/><circle cx="300" cy="140" r="1"/>
+            <circle cx="340" cy="140" r="1"/><circle cx="380" cy="140" r="1"/><circle cx="420" cy="140" r="1"/>
+
+            <circle cx="100" cy="180" r="1"/><circle cx="140" cy="180" r="1"/><circle cx="180" cy="180" r="1"/>
+            <circle cx="220" cy="180" r="1"/><circle cx="380" cy="180" r="1"/><circle cx="420" cy="180" r="1"/>
+
+            <circle cx="100" cy="220" r="1"/><circle cx="140" cy="220" r="1"/><circle cx="420" cy="220" r="1"/>
+
+            <circle cx="100" cy="380" r="1"/><circle cx="140" cy="380" r="1"/><circle cx="180" cy="380" r="1"/>
+            <circle cx="220" cy="380" r="1"/><circle cx="260" cy="380" r="1"/><circle cx="300" cy="380" r="1"/>
+            <circle cx="340" cy="380" r="1"/><circle cx="380" cy="380" r="1"/><circle cx="420" cy="380" r="1"/>
+          </g>
+
+          <!-- Floating compass -->
+          <g transform="translate(260 260) rotate(-14)">
+            <!-- Shadow -->
+            <ellipse cx="0" cy="78" rx="62" ry="6" fill="#14121012"/>
+
+            <!-- Compass body -->
+            <circle cx="0" cy="0" r="74" fill="#FAF8F4" stroke="#141210" stroke-width="1.6"/>
+            <circle cx="0" cy="0" r="64" fill="none" stroke="#141210" stroke-width="1"/>
+
+            <!-- Cardinal tick marks -->
+            <g stroke="#141210" stroke-width="1.4" stroke-linecap="round">
+              <line x1="0" y1="-72" x2="0" y2="-62"/>
+              <line x1="72" y1="0" x2="62" y2="0"/>
+              <line x1="0" y1="72" x2="0" y2="62"/>
+              <line x1="-72" y1="0" x2="-62" y2="0"/>
+            </g>
+
+            <!-- Diagonal tick marks -->
+            <g stroke="#141210" stroke-width="1" stroke-linecap="round" opacity=".55">
+              <line x1="51" y1="-51" x2="46" y2="-46"/>
+              <line x1="51" y1="51" x2="46" y2="46"/>
+              <line x1="-51" y1="51" x2="-46" y2="46"/>
+              <line x1="-51" y1="-51" x2="-46" y2="-46"/>
+            </g>
+
+            <!-- N label -->
+            <text x="0" y="-44" text-anchor="middle" font-size="18" fill="#141210">N</text>
+
+            <!-- Animated needle -->
+            <g class="needle-wrap">
+              <g transform="rotate(118)">
+                <path d="M0 -50 L10 0 L-10 0 Z" fill="#D8F651" stroke="#141210" stroke-width="1.4" stroke-linejoin="round"/>
+                <path d="M0 50 L10 0 L-10 0 Z" fill="#141210" stroke="#141210" stroke-width="1.4" stroke-linejoin="round"/>
+              </g>
+            </g>
+
+            <!-- Center pin -->
+            <circle cx="0" cy="0" r="4" fill="#FAF8F4" stroke="#141210" stroke-width="1.4"/>
+
+            <!-- Orbit arcs -->
+            <g stroke="#141210" stroke-width="1.2" stroke-linecap="round" fill="none" opacity=".55">
+              <path d="M-92 -10 a 96 96 0 0 1 10 -18"/>
+              <path d="M92 10 a 96 96 0 0 1 -10 18"/>
+            </g>
+          </g>
+
+          <!-- 404 stamp -->
+          <text x="76" y="400" font-family="JetBrains Mono, ui-monospace, monospace" font-size="22" fill="#76716A">
+            404
+          </text>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /*
+   * Only kept here:
+   *   1. Dot grid + mask (radial-gradient mask-image isn't expressible as a utility)
+   *   2. Title clamp() (fluid type)
+   *   3. Compass needle transition (animated via JS, but eased in CSS)
+   */
+
+  /* Dot grid — fades out toward the left */
+  .not-found-dots {
+    background-image: radial-gradient(#14121012 1px, transparent 1px);
+    background-size: 28px 28px;
+    mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 70% 50%, black 0%, transparent 70%);
+    opacity: .9;
+  }
+
+  /* Fluid hero title */
+  .nf-title {
+    font-weight: 400;
+    font-size: clamp(56px, 8vw, 120px);
+    line-height: 0.95;
+    letter-spacing: -0.025em;
+    color: var(--color-ink);
+  }
+  .nf-title em {
+    font-style: italic;
+    color: var(--color-ink-2);
+  }
+
+  /* Compass needle: bouncy spring easing, animated via the inline script */
+  @media (prefers-reduced-motion: no-preference) {
+    .needle-wrap {
+      transition: transform 1.4s cubic-bezier(.34, 1.56, .64, 1);
+      transform-origin: 0 0;
+    }
+  }
+</style>
+
+<script>
+  // Spin the compass needle to random angles — no libraries, no deps.
+  const needle = document.querySelector<SVGGElement>('.needle-wrap');
+  if (needle) {
+    const angles = [118, 32, 174, 88, 220, 60, 145];
+    let i = 0;
+    setInterval(() => {
+      i = (i + 1) % angles.length;
+      needle.style.transform = `rotate(${angles[i]}deg)`;
+    }, 2600);
+  }
+</script>

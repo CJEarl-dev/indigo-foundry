@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lambda-agency.example.com/sitemap-index.xml

@@ -1,0 +1,32 @@
+---
+// Trusted-by logo row — typographic brand locks, sans-serif per feedback.
+// Each brand has a unique style variant (italic, caps, letter-spacing) mapped below.
+const brandLocks = [
+  { name: 'Northwind', classes: 'italic font-medium' },
+  { name: 'MERCATO.', classes: 'font-bold tracking-[0.04em]' },
+  { name: 'helio', classes: 'lowercase font-medium' },
+  { name: 'Orbit°', classes: 'italic font-medium' },
+  { name: 'LUMEN', classes: 'tracking-[0.25em] font-medium' },
+  { name: 'Field & Fern', classes: 'font-medium' },
+];
+---
+
+<section class="mt-[120px] border-t border-line py-20 pb-10">
+  <div class="wrap">
+    <div class="mb-10 text-center">
+      <span class="pill-tag">Trusted by teams at</span>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 md:justify-between">
+      {brandLocks.map((b) => (
+        <div
+          class:list={[
+            'font-sans text-[18px] md:text-[22px] text-ink-2 opacity-75 transition-opacity hover:opacity-100',
+            b.classes,
+          ]}
+        >
+          {b.name}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

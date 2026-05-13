@@ -1,0 +1,92 @@
+---
+import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
+import SEO from '../components/SEO.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+
+type Props = {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: Date;
+  modifiedTime?: Date;
+  author?: string;
+  canonical?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>;
+  /** URL of the LCP image on this page — emits a `<link rel="preload" as="image">` to speed up LCP. */
+  preloadImage?: string;
+  /** Optional `imagesrcset` for responsive LCP preload. Must match the `<Image>` srcset exactly. */
+  preloadImageSrcset?: string;
+  /** Optional `imagesizes` to pair with the srcset. */
+  preloadImageSizes?: string;
+  /** Optional MIME type (e.g. `image/webp`) so the browser doesn't preload a format it can't display. */
+  preloadImageType?: string;
+};
+
+const {
+  preloadImage,
+  preloadImageSrcset,
+  preloadImageSizes,
+  preloadImageType,
+  ...props
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={site.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!--
+      Fonts: preconnect handshake first, then non-blocking stylesheet.
+      The `media="print" onload` trick lets the browser fetch the CSS without
+      blocking render, then activates it once it lands. The <noscript> fallback
+      ensures fonts still load when JS is disabled.
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=Caveat:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
+
+    {preloadImage && (
+      <link
+        rel="preload"
+        as="image"
+        href={preloadImage}
+        imagesrcset={preloadImageSrcset}
+        imagesizes={preloadImageSizes}
+        type={preloadImageType}
+        fetchpriority="high"
+      />
+    )}
+
+    <SEO {...props} />
+    <ClientRouter />
+  </head>
+  <body>
+    <Navbar />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

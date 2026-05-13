@@ -1,0 +1,78 @@
+---
+// Our story — image + copy, with a "that's us, back in the day" annotation
+import { story } from '../../data/about';
+const { image, imageAlt } = story;
+---
+
+<section class="pt-10 pb-20">
+  <div class="wrap">
+    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-[60px]">
+      <div class="relative">
+        {image ? (
+          <img
+            src={image}
+            alt={imageAlt}
+            loading="lazy"
+            decoding="async"
+            class="aspect-[4/5] w-full rounded-3xl object-cover"
+          />
+        ) : (
+          <div class="ph ph-light aspect-[4/5] rounded-3xl">
+            <div>
+              <div class="ph-label">Our team · 2018</div>
+              <div class="ph-title">One laptop, one client</div>
+            </div>
+          </div>
+        )}
+      </div>
+      <div>
+        <span class="eyebrow">Our story</span>
+        <h2 class="story-head mt-3.5 font-serif">
+          Started in 2018 with <em>one laptop</em> and one client.
+        </h2>
+        <p class="mt-5 text-base leading-[1.65] text-ink-2">
+          What began as a freelance moonlight turned into a small studio, then a fully-remote agency
+          with teammates in four countries. We picked up design, engineering, and strategy as the
+          work demanded it, and kept the things that mattered: a short client list, honest timelines,
+          and a serious bar for craft.
+        </p>
+        <p class="mt-4 text-base leading-[1.65] text-ink-2">
+          Today we collaborate with scrappy startups, mid-size B2B companies, and a handful of
+          nonprofits we care deeply about. We still pick projects one at a time.
+        </p>
+        <!-- Annotation pointing UP-LEFT to the image -->
+        <div class="mx-auto max-w-[1280px] mt-8">
+          <div
+            class="hidden gap-1 lg:flex"
+            aria-hidden="true"
+          >
+          <svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70" fill="none">
+            <path d="M67.4045 29.9435C67.7857 30.1669 67.9136 30.657 67.6902 31.0382C67.4668 31.4194 66.9767 31.5473 66.5955 31.3239L67 30.6337L67.4045 29.9435ZM2.20074 17.0344C2.18176 16.593 2.5242 16.2197 2.96562 16.2007L10.159 15.8913C10.6004 15.8723 10.9736 16.2148 10.9926 16.6562C11.0116 17.0976 10.6691 17.4709 10.2277 17.4898L3.83364 17.7649L4.10868 24.159C4.12766 24.6004 3.78521 24.9736 3.3438 24.9926C2.90237 25.0116 2.52914 24.6691 2.51015 24.2277L2.20074 17.0344ZM67 30.6337L66.5955 31.3239C60.2674 27.615 55.319 26.8554 50.9321 27.276C46.4562 27.7052 42.6089 29.3341 38.2137 30.5525C33.8673 31.7574 29.1889 32.4756 23.4296 30.8718C17.6955 29.275 10.9713 25.3995 2.45914 17.5895L3 17L3.54086 16.4105C11.9518 24.1277 18.4584 27.8266 23.8588 29.3305C29.2342 30.8274 33.5942 30.1727 37.7863 29.0107C41.9295 27.8621 46.1208 26.13 50.7794 25.6833C55.5272 25.2281 60.8095 26.0782 67.4045 29.9435L67 30.6337Z" fill="#141210"/>
+          </svg>
+          <span class="note">that's us,<br/>back in the day</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Fluid heading — clamp() doesn't fit Tailwind cleanly */
+  .story-head {
+    font-weight: 400;
+    font-size: clamp(32px, 3.5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+  }
+  .story-head :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+  /* Hand-drawn annotation positioning */
+  .annotate-story {
+    position: absolute;
+    bottom: -24px;
+    right: -20px;
+    transform: rotate(8deg);
+    z-index: 4;
+  }
+</style>
