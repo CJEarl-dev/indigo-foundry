@@ -9,27 +9,28 @@
    These tokens become utilities: bg-ink, text-muted, font-serif, etc.
    ============================================================= */
 @theme {
-  --color-bg: #FAF8F4;
-  --color-bg-2: #F2EFE8;
-  --color-bg-3: #EAE6DC;
-  --color-ink: #141210;
-  --color-ink-2: #3A3732;
-  --color-ink-soft: #8A857C;
-  --color-muted: #76716A;
-  --color-line: #1F1D1A14;
-  --color-line-strong: #1F1D1A22;
-  --color-accent: #D8F651;
-  --color-accent-2: #C5E03A;
-  --color-accent-ink: #1A1F00;
-  --color-warm: #E8DFC9;
+  --color-bg: #F4F3FB;
+  --color-bg-2: #EDE9F9;
+  --color-bg-3: #E5DFF3;
+  --color-ink: #1A1830;
+  --color-ink-2: #3D3F5A;
+  --color-ink-soft: #8A88A0;
+  --color-muted: #9B99B0;
+  --color-line: #3D3580;
+  --color-line-strong: #3D358033;
+  --color-accent: #3D3580;
+  --color-accent-2: #EAE8F7;
+  --color-accent-ink: #FFFFFF;
+  --color-warm: #C8A882;
   --color-card: #FFFFFF;
 
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Instrument Serif', 'Times New Roman', serif;
-  --font-script: 'Caveat', cursive;
-  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
-  --default-font-family: var(--font-sans);
+--font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+--font-serif: 'DM Serif Display', 'Times New Roman', serif;
+--font-script: 'DM Serif Display', cursive;
+--font-mono: 'DM Mono', ui-monospace, monospace;
+
+ --default-font-family: var(--font-sans);
 }
 
 /* Legacy short aliases — keep so any remaining scoped CSS referencing
