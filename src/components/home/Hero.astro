@@ -148,7 +148,16 @@ const { heroImage, heroImageAlt } = site;
     line-height: 0.95;
     letter-spacing: -0.025em;
   }
-  .hero-title :global(em) { font-style: italic; color: var(--color-ink-2); }
+
+.hero-title { color: #FFFFFF; }
+.pill-tag { color: rgba(255, 255, 255, 0.90); }
+.text-ink-2 { color: rgba(255, 255, 255, 0.80); }
+.note { color: rgba(255, 255, 255, 0.60); }
+.text-muted { color: rgba(255, 255, 255, 0.50); }
+.btn-ghost { color: #FFFFFF; border-color: rgba(255, 255, 255, 0.50); }
+.btn-ghost:hover { background: rgba(255, 255, 255, 0.10); }
+
+  .hero-title :global(em) { font-style: italic; color: var(--color-accent); }
 
   /* Complex multi-layer gradient for the hero image placeholder */
   .hero-image {
