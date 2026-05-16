@@ -95,7 +95,11 @@
   @media (max-width: 900px) {
     .wrap { padding-inline: 20px; }
   }
-
+  /*----------- Italic emphasis font style and color --------------------------*/
+  em {
+  color: #a85c00;
+  font-style: italic;
+}
   /* ---------- Hand-drawn highlight (complex clip-path) ---------- */
   .mark-hl {
     position: relative;
