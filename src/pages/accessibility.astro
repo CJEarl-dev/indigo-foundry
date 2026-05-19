@@ -1,0 +1,351 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Accessibility Statement — Indigo Foundry">
+  <main id="main">
+    <div class="page-wrap">
+
+      <header class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Accessibility Statement</p>
+        <h1 id="page-title">Building for everyone, by design.</h1>
+        <p class="hero-lead">Accessibility isn't a checklist item at Indigo Foundry — it's a core part of how we build. This page describes our commitment, our current status, and how to reach us if something isn't working for you.</p>
+        <div class="hero-meta" aria-label="Statement details">
+          <span class="meta-pill standard">WCAG 2.2 AA Target</span>
+          <span class="meta-pill status">Actively maintained</span>
+          <span class="meta-pill date">Last updated: May 2026</span>
+        </div>
+      </header>
+
+      <div role="region" aria-label="Accessibility statement content">
+
+        <section class="statement-section" aria-labelledby="commitment-heading">
+          <h2 id="commitment-heading">Our Commitment</h2>
+          <p>Indigo Foundry, LLC is committed to ensuring digital accessibility for people with disabilities. We actively work to improve the usability of this site for everyone, regardless of ability or assistive technology used.</p>
+          <p>We believe accessible design is good design — and that organizations serving the public, particularly nonprofits, civic institutions, and public health agencies, deserve web partners who take this seriously.</p>
+        </section>
+
+        <section class="statement-section" aria-labelledby="standard-heading">
+          <h2 id="standard-heading">Conformance Status</h2>
+          <p>This site targets conformance with the <a href="https://www.w3.org/TR/WCAG22/" target="_blank" rel="noopener" style="color: var(--indigo); font-weight: 500;">Web Content Accessibility Guidelines (WCAG) 2.2</a> at Level AA. WCAG 2.2 AA defines requirements for designers and developers to make web content more accessible to people with disabilities.</p>
+          <p>As a recently launched site, we are in active pursuit of this standard rather than claiming full conformance. We conduct regular self-evaluations using automated tools and manual testing, and we address identified issues as a priority.</p>
+          <p>WCAG 2.2 AA also forms the technical foundation for compliance with <strong>Section 508 of the Rehabilitation Act</strong>, the federal law requiring that electronic and information technology developed, procured, maintained, or used by the federal government be accessible to people with disabilities. Organizations working with federal agencies, receiving federal funding, or operating under federal contractor requirements will recognize this standard as the basis for their 508 obligations. Building to WCAG 2.2 AA means building to meet those requirements.</p>
+        </section>
+
+        <section class="statement-section" aria-labelledby="measures-heading">
+          <h2 id="measures-heading">Measures We Take</h2>
+          <p>Indigo Foundry takes the following measures to ensure accessibility of this site and the work we deliver to clients:</p>
+          <div class="measures-grid" role="list">
+            <div class="measure-card" role="listitem">
+              <strong>Semantic HTML</strong>
+              <p>Proper use of landmarks, headings, and native HTML elements to support screen readers and keyboard navigation.</p>
+            </div>
+            <div class="measure-card" role="listitem">
+              <strong>Keyboard Navigation</strong>
+              <p>All interactive elements are reachable and operable via keyboard, with visible focus indicators throughout.</p>
+            </div>
+            <div class="measure-card" role="listitem">
+              <strong>Color Contrast</strong>
+              <p>Text and UI elements meet or exceed WCAG 2.2 AA contrast ratio requirements across both light and dark contexts.</p>
+            </div>
+            <div class="measure-card" role="listitem">
+              <strong>Skip Navigation</strong>
+              <p>A skip link is provided at the top of each page to allow keyboard users to bypass repeated navigation.</p>
+            </div>
+            <div class="measure-card" role="listitem">
+              <strong>Regular Auditing</strong>
+              <p>We test with automated tools including Lighthouse and WAVE, and supplement with manual review.</p>
+            </div>
+            <div class="measure-card" role="listitem">
+              <strong>Responsive Design</strong>
+              <p>Content is usable across a range of devices, screen sizes, and zoom levels up to 400% without loss of functionality.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="statement-section" aria-labelledby="limitations-heading">
+          <h2 id="limitations-heading">Known Limitations</h2>
+          <p>Despite our best efforts, some areas of this site may not yet fully meet WCAG 2.2 AA. We document known gaps here transparently, and are actively working to resolve them:</p>
+          <div class="limitation-item" role="note">
+            <p>Third-party embeds (such as scheduling tools or forms) may have accessibility limitations outside our direct control. We evaluate and select third-party tools with accessibility in mind, and provide alternatives where possible.</p>
+          </div>
+          <p style="margin-top: 0.75rem; font-size: 0.875rem;">If you encounter a barrier not listed here, please let us know — user feedback is how we find and fix gaps we've missed.</p>
+        </section>
+
+        <section class="statement-section" aria-labelledby="technical-heading">
+          <h2 id="technical-heading">Technical Approach</h2>
+          <p>This site relies on the following technologies for its accessibility implementation:</p>
+          <div class="tech-list" role="list">
+            <span class="tech-tag" role="listitem">HTML5</span>
+            <span class="tech-tag" role="listitem">CSS3</span>
+            <span class="tech-tag" role="listitem">JavaScript</span>
+            <span class="tech-tag" role="listitem">WAI-ARIA</span>
+            <span class="tech-tag" role="listitem">SVG</span>
+          </div>
+          <p style="margin-top: 1rem;">We test across current versions of Chrome, Firefox, Safari, and Edge on both desktop and mobile. Screen reader testing is conducted using NVDA on Windows and VoiceOver on macOS and iOS.</p>
+        </section>
+
+        <section class="statement-section" aria-labelledby="feedback-heading">
+          <h2 id="feedback-heading">Feedback &amp; Contact</h2>
+          <div class="contact-card">
+            <p>We welcome feedback on the accessibility of this site. If you encounter a barrier, find something that isn't working as expected, or have a suggestion for improvement, please reach out — we take these reports seriously and aim to respond promptly.</p>
+            <a class="contact-btn" href="/contact" aria-label="Go to contact form to report an accessibility issue">
+              Report an accessibility issue
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <p class="response-note">We aim to respond to accessibility feedback within 3 business days.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  /* Page wrap layout */
+  .page-wrap {
+    display: grid;
+    grid-template-columns: 1fr min(680px, 100%) 1fr;
+    padding: 0 1.5rem;
+  }
+  .page-wrap > * { grid-column: 2; }
+ 
+  /* Hero section */
+  .hero {
+    padding: 4.5rem 0 3rem;
+    border-bottom: 1px solid var(--color-line);
+    margin-bottom: 3rem;
+  }
+ 
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+ 
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 2px;
+    background: var(--color-accent);
+    border-radius: 2px;
+  }
+ 
+  .hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    line-height: 1.1;
+    letter-spacing: -0.025em;
+    color: var(--color-ink);
+    margin-bottom: 1.25rem;
+  }
+ 
+  .hero-lead {
+    font-size: 1.05rem;
+    color: var(--color-ink-2);
+    font-weight: 400;
+    max-width: 540px;
+    line-height: 1.75;
+  }
+ 
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+ 
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+ 
+  .meta-pill.standard {
+    background: var(--color-bg-3);
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+  }
+ 
+  .meta-pill.status {
+    background: #EDFAF4;
+    color: #1A7F5A;
+    border: 1px solid #B8EDD8;
+  }
+ 
+  .meta-pill.date {
+    background: transparent;
+    color: var(--color-muted);
+    border: 1px solid var(--color-line);
+  }
+ 
+  /* Sections */
+  .statement-section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 0.45s ease forwards;
+  }
+ 
+  .statement-section:nth-child(1) { animation-delay: 0.05s; }
+  .statement-section:nth-child(2) { animation-delay: 0.10s; }
+  .statement-section:nth-child(3) { animation-delay: 0.15s; }
+  .statement-section:nth-child(4) { animation-delay: 0.20s; }
+  .statement-section:nth-child(5) { animation-delay: 0.25s; }
+  .statement-section:nth-child(6) { animation-delay: 0.30s; }
+ 
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+ 
+  .statement-section h2 {
+    font-family: var(--font-serif);
+    font-size: 1.4rem;
+    letter-spacing: -0.02em;
+    color: var(--color-ink);
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--color-line);
+  }
+ 
+  .statement-section p {
+    color: var(--color-ink-2);
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+ 
+  .statement-section p:last-child { margin-bottom: 0; }
+ 
+  /* Measures grid */
+  .measures-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+ 
+  .measure-card {
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-radius: 10px;
+    padding: 1rem 1.1rem;
+  }
+ 
+  .measure-card strong {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    margin-bottom: 0.25rem;
+  }
+ 
+  .measure-card p {
+    font-size: 0.82rem;
+    margin-bottom: 0;
+    line-height: 1.55;
+    color: var(--color-ink-2);
+  }
+ 
+  /* Limitation items */
+  .limitation-item {
+    background: var(--color-card);
+    border: 1px solid var(--color-line);
+    border-left: 3px solid var(--color-accent);
+    border-radius: 0 8px 8px 0;
+    padding: 0.9rem 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+ 
+  .limitation-item p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+    color: var(--color-ink-2);
+  }
+ 
+  /* Tech list */
+  .tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+ 
+  .tech-tag {
+    padding: 0.3rem 0.8rem;
+    background: var(--color-bg-3);
+    color: var(--color-accent);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--color-accent);
+  }
+ 
+  /* Contact card */
+  .contact-card {
+    background: var(--color-card);
+    border: 1.5px solid var(--color-bg-3);
+    border-radius: 12px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 0.75rem;
+  }
+ 
+  .contact-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    color: var(--color-ink-2);
+  }
+ 
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--color-accent);
+    color: var(--color-accent-ink);
+    text-decoration: none;
+    padding: 0.7rem 1.5rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.15s, transform 0.15s;
+  }
+ 
+  .contact-btn:hover,
+  .contact-btn:focus {
+    background: var(--color-accent-2);
+    transform: translateY(-1px);
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+ 
+  .response-note {
+    margin-top: 0.75rem;
+    font-size: 0.8rem;
+    color: var(--color-muted);
+    font-family: var(--font-mono);
+  }
+ 
+  /* Responsive */
+  @media (max-width: 600px) {
+    .measures-grid { grid-template-columns: 1fr; }
+    .hero { padding: 3rem 0 2rem; }
+  }
+</style>
