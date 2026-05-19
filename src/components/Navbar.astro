@@ -1,5 +1,6 @@
 ---
 import { nav } from '../data/site';
+import logo from '../images/indigo-foundry-logo.png';
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
@@ -13,9 +14,8 @@ function isActive(href: string) {
   aria-label="Primary"
 >
   <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-[18px] md:grid md:grid-cols-[auto_1fr_auto] md:gap-4 md:px-8 lg:gap-8">
-    <a class="logo flex flex-col items-start" href="/" aria-label="Lambda Agency — home">
-      <span class="mark">L<em>Λ</em>MBD<em>Λ</em></span>
-      <em class="tag">Agency</em>
+    <a class="logo flex items-center" href="/" aria-label="Indigo Foundry — home">
+      <img src={logo.src} alt="Indigo Foundry" width="150" height="auto" />
     </a>
 
     <div class="hidden justify-center gap-0.5 text-sm text-ink-2 md:flex lg:gap-1">
@@ -70,9 +70,8 @@ function isActive(href: string) {
 >
     <!-- Top bar: logo + close -->
     <div class="flex items-center justify-between px-5 py-[18px]">
-      <a class="logo flex flex-col items-start" href="/" aria-label="Lambda Agency — home">
-        <span class="mark">L<em>Λ</em>MBD<em>Λ</em></span>
-        <em class="tag">Agency</em>
+      <a class="logo flex items-center" href="/" aria-label="Indigo Foundry — home">
+        <img src={logo.src} alt="Indigo Foundry" width="120" height="auto" />
       </a>
       <button
         type="button"

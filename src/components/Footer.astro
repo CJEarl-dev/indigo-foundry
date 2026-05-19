@@ -1,5 +1,6 @@
 ---
 import { site, footerNav } from '../data/site';
+import logo from '../images/indigo-foundry-logo.png';
 const year = new Date().getFullYear();
 ---
 
@@ -7,9 +8,8 @@ const year = new Date().getFullYear();
   <div class="wrap">
     <div class="grid grid-cols-2 gap-10 pb-[72px] lg:grid-cols-[2fr_1fr_1fr_1fr]">
       <div class="col-span-2 lg:col-span-1">
-        <a class="logo flex flex-col items-start" href="/" aria-label={`${site.name} — home`}>
-          <span class="mark">L<em>Λ</em>MBD<em>Λ</em></span>
-          <span class="tag">Agency</span>
+        <a class="logo flex items-center" href="/" aria-label={`${site.name} — home`}>
+          <img src={logo.src} alt="Indigo Foundry" width="120" height="auto" />
         </a>
         <p class="mt-4 max-w-[320px] text-sm text-ink-soft">{site.description}</p>
       </div>

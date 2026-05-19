@@ -1,13 +1,13 @@
 import heroDashboard from '../images/hero-dashboard.png';
 
 export const site = {
-  name: 'Lambda Agency',
-  title: 'Lambda — Digital Agency Template',
+  name: 'Indigo Foundry, LLC',
+  title: 'Indigo Foundry',
   description:
     'A modern, fast, and SEO-friendly Astro template for creative and digital agencies. Includes blog, portfolio, services, and contact.',
-  url: 'https://lambda-agency.example.com',
+  url: 'https://www.indigo-foundry.com',
   locale: 'en',
-  author: 'Lambda Agency',
+  author: 'Christopher Earl',
   email: 'hello@lambda-agency.com',
   phone: '+1 (555) 123-4567',
   address: '123 Main Street, Suite 400, San Francisco, CA 94105',
@@ -36,6 +36,8 @@ export const nav = [
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Resources', href: '/resources' },      // New Resources page added
+  { label: 'Accessibility', href: '/accessibility' }, // New Accessibility page added
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -50,6 +52,9 @@ export const footerNav = {
     { label: 'Blog', href: '/blog' },
     { label: 'Projects', href: '/projects' },
     { label: 'Case studies', href: '/projects' },
+    { label: 'Resources', href: '/resources' },       // Link to new Resources page
+    { label: 'Accessibility', href: '/accessibility' }, // Link to new Accessibility page
+,
   ],
   legal: [
     { label: 'Privacy policy', href: '/privacy' },
