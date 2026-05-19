@@ -9,17 +9,17 @@
    These tokens become utilities: bg-ink, text-muted, font-serif, etc.
    ============================================================= */
 @theme {
-  --color-bg: #F8F7FF;
-  --color-bg-2: #E8E8EE;
-  --color-bg-3: #D0C8E5;
+  --color-bg: #F7F7F7;
+  --color-bg-2: #EFEFEF;
+  --color-bg-3: #E0D8CC;
   --color-ink: #1A1830;
   --color-ink-2: #3D3F5A;
   --color-ink-soft: #8A88A0;
   --color-muted: #9B99B0;
-  --color-line: #A78BDE;
-  --color-line-strong: #3D358044;
-  --color-accent: #A78BDE;
-  --color-accent-2: #D0CDD0;
+  --color-line: #1A1830;
+  --color-line-strong: #1A183022;
+  --color-accent: #A85C00;
+  --color-accent-2: #D4874A;
   --color-accent-ink: #FFFFFF;
   --color-warm: #C8A882;
   --color-card: #FFFFFF;

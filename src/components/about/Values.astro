@@ -26,12 +26,12 @@ const iconMap: Record<ValueIcon, string> = {
           <!-- Striped dashed corner — complex repeating gradient, stays inline -->
           <div
             class="pointer-events-none absolute -top-5 -right-5 h-20 w-20 opacity-60"
-            style="background: repeating-linear-gradient(45deg, var(--color-accent) 0 6px, transparent 6px 12px);"
+            style="background: repeating-linear-gradient(45deg, #3D3580 0 6px, transparent 6px 12px);"
             aria-hidden="true"
           ></div>
 
           <div
-            class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-ink"
+            class="mb-5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[#1A1830] text-white"
             aria-hidden="true"
             set:html={iconMap[value.icon] ?? iconMap.sparkles}
           />
