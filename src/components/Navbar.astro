@@ -1,6 +1,6 @@
 ---
 import { nav } from '../data/site';
-import logo from '../images/indigo-foundry-logo.png';
+import logo from '../images/indigo-foundry-logo-black-transparent.png';
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
@@ -13,12 +13,12 @@ function isActive(href: string) {
   class="sticky top-0 z-50 border-b border-line bg-bg/85 backdrop-blur-md"
   aria-label="Primary"
 >
-  <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-[18px] md:grid md:grid-cols-[auto_1fr_auto] md:gap-4 md:px-8 lg:gap-8">
+  <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-8 px-5 py-2 lg:grid lg:grid-cols-[auto_1fr_auto] lg:gap-4 lg:px-8 xl:gap-8">
     <a class="logo flex items-center" href="/" aria-label="Indigo Foundry — home">
-      <img src={logo.src} alt="Indigo Foundry" width="150" height="auto" />
+      <img src={logo.src} alt="Indigo Foundry" style="height: 100px; width: auto; min-width: 160px;" />
     </a>
 
-    <div class="hidden justify-center gap-0.5 text-sm text-ink-2 md:flex lg:gap-1">
+    <div class="hidden justify-center gap-0.5 text-sm text-ink-2 lg:flex lg:gap-1">
       {nav.map((item) => (
         <a
           href={item.href}
@@ -35,7 +35,7 @@ function isActive(href: string) {
 
     <a
       href="/contact"
-      class="hidden items-center gap-2 whitespace-nowrap rounded-full border border-ink bg-ink px-[18px] py-[9px] text-[13px] font-medium text-bg transition-[background,color,border-color] duration-200 hover:border-accent hover:bg-accent hover:text-accent-ink md:inline-flex"
+      class="hidden items-center gap-2 whitespace-nowrap rounded-full border border-ink bg-ink px-[18px] py-[9px] text-[13px] font-medium text-bg transition-[background,color,border-color] duration-200 hover:border-accent hover:bg-accent hover:text-accent-ink lg:inline-flex"
     >
       <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
       Get in touch
@@ -43,7 +43,7 @@ function isActive(href: string) {
 
     <button
       type="button"
-      class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line-strong hover:bg-bg-2 md:hidden"
+      class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-line-strong hover:bg-bg-2 lg:hidden"
       aria-label="Open menu"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -64,14 +64,14 @@ function isActive(href: string) {
 -->
 <div
   id="mobile-menu"
-  class="mobile-menu fixed inset-0 z-[60] flex-col bg-bg md:!hidden"
+  class="mobile-menu fixed inset-0 z-[60] flex-col bg-bg lg:!hidden"
   data-mobile-menu
   aria-hidden="true"
 >
     <!-- Top bar: logo + close -->
     <div class="flex items-center justify-between px-5 py-[18px]">
       <a class="logo flex items-center" href="/" aria-label="Indigo Foundry — home">
-        <img src={logo.src} alt="Indigo Foundry" width="120" height="auto" />
+        <img src={logo.src} alt="Indigo Foundry" style="height: 100px; width: auto;" />
       </a>
       <button
         type="button"
@@ -139,7 +139,7 @@ function isActive(href: string) {
   /* Mobile menu — toggled via .is-open class. Custom CSS to beat Tailwind's `flex-col` ordering. */
   .mobile-menu { display: none; }
   .mobile-menu.is-open { display: flex; }
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     .mobile-menu,
     .mobile-menu.is-open { display: none !important; }
   }
