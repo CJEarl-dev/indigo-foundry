@@ -1,6 +1,6 @@
 ---
 import { nav } from '../data/site';
-import logo from '../images/indigo-foundry-logo-black-transparent-cropped.png';
+import logo from '../images/indigo-foundry-logo-black-transparent.svg';
 const currentPath = Astro.url.pathname;
 
 function isActive(href: string) {
@@ -35,9 +35,9 @@ function isActive(href: string) {
 
     <a
       href="/contact"
-      class="hidden items-center gap-2 whitespace-nowrap rounded-full border border-ink bg-ink px-[18px] py-[9px] text-[13px] font-medium text-bg transition-[background,color,border-color] duration-200 hover:border-accent hover:bg-accent hover:text-accent-ink lg:inline-flex"
+      class="hidden items-center gap-2 whitespace-nowrap rounded-full border border-ink bg-ink px-[18px] py-[9px] text-[13px] font-medium text-bg transition-[background,color,border-color] duration-200 hover:border-interactive hover:bg-interactive hover:text-accent-ink lg:inline-flex"
     >
-      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+      <span class="h-1.5 w-1.5 rounded-full bg-interactive"></span>
       Get in touch
     </a>
 
@@ -119,14 +119,14 @@ function isActive(href: string) {
       >
         <div>
           <div class="font-mono text-[10px] tracking-[.18em] uppercase text-bg/55">
-            <span class="mr-1.5 inline-block h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-accent align-middle"></span>
+            <span class="mr-1.5 inline-block h-1.5 w-1.5 translate-y-[-2px] rounded-full bg-interactive align-middle"></span>
             Ready to start?
           </div>
           <div class="mt-1 text-[22px] font-medium tracking-[-0.005em]">
             Get in touch
           </div>
         </div>
-        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-accent-ink">
+        <span class="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-interactive text-accent-ink">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M4 12L12 4M6 4h6v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
           </svg>

@@ -20,6 +20,7 @@
   --color-line-strong: #1A183022;
   --color-accent: #A85C00;
   --color-accent-2: #D4874A;
+  --color-interactive: #3d3580;
   --color-accent-ink: #FFFFFF;
   --color-warm: #C8A882;
   --color-card: #FFFFFF;
@@ -47,6 +48,7 @@
   --line-strong: var(--color-line-strong);
   --accent: var(--color-accent);
   --accent-2: var(--color-accent-2);
+  --interactive: var(--color-interactive);
   --accent-ink: var(--color-accent-ink);
   --warm: var(--color-warm);
   --card: var(--color-card);
@@ -177,7 +179,7 @@
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--color-accent);
+    background: var(--color-interactive);
   }
 
   /* ---------- Eyebrow (section kicker with em-dash) ---------- */
@@ -189,6 +191,16 @@
     color: var(--color-muted);
   }
   .eyebrow::before { content: '— '; opacity: .7; }
+
+  .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-ink-2);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
 
   /* ---------- Script note (hand-drawn annotations) ---------- */
   .note {
