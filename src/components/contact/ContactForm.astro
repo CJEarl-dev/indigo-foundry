@@ -35,7 +35,7 @@
   </div>
 
   <div class="grid gap-2">
-    <label for="company">Company</label>
+    <label for="company">Organization or business name</label>
     <input
       id="company"
       name="company"
@@ -49,27 +49,27 @@
     <label for="budget">Rough budget</label>
     <select id="budget" name="budget">
       <option value="">Select a range</option>
-      <option>Under $10k</option>
-      <option>$10k – $30k</option>
-      <option>$30k – $75k</option>
-      <option>$75k+</option>
-      <option>Not sure yet</option>
+      <option>Under $1,500</option>
+      <option>$1,500 – $3,500</option>
+      <option>$3,500 – $7,500</option>
+      <option>$7,500+</option>
+     <!-- <option>Not sure yet</option> -->
     </select>
   </div>
 
   <div class="grid gap-2">
-    <label for="message">Tell us about the project</label>
+    <label for="message">Tell us about your project</label>
     <textarea
       id="message"
       name="message"
       rows="6"
       required
-      placeholder="Goals, timeline, who's on your team, and anything else we should know."
+      placeholder="What are you building, and what does success look like?"
     ></textarea>
   </div>
 
   <div class="relative mt-2 flex items-center gap-5">
-    <button type="submit" class="btn btn-primary">Send message</button>
+    <button type="submit" class="btn btn-primary">Let's talk</button>
 
     <!-- Hand-drawn annotation: points DOWN-LEFT to the submit button -->
     <div
@@ -87,13 +87,12 @@
           d="M67.1648 28.6911C67.5972 28.7821 67.8739 29.2064 67.7828 29.6387C67.6918 30.0711 67.2675 30.3478 66.8352 30.2568L67 29.4739L67.1648 28.6911ZM1.32649 28.9318C1.08806 28.5599 1.1963 28.065 1.56827 27.8266L7.62981 23.941C8.00177 23.7026 8.4966 23.8108 8.73504 24.1828C8.97348 24.5547 8.86523 25.0496 8.49327 25.288L3.10524 28.7419L6.55909 34.1299C6.79753 34.5019 6.68928 34.9967 6.31731 35.2351C5.94535 35.4736 5.45052 35.3653 5.21208 34.9934L1.32649 28.9318ZM67 29.4739L66.8352 30.2568C53.9886 27.5522 45.8659 29.0351 36.8657 30.3509C27.8135 31.6743 17.9581 32.8099 1.82904 29.2816L2 28.5001L2.17096 27.7186C18.0419 31.1904 27.6865 30.0759 36.6343 28.7678C45.6341 27.452 54.0114 25.9219 67.1648 28.6911L67 29.4739Z"
           fill="#141210"></path>
       </svg>
-      <span class="note">hit send —<br />we reply fast</span>
+      <span class="note">click here —<br />we reply fast</span>
     </div>
   </div>
 
   <p class="text-[13px] leading-[1.5] text-muted">
-    By submitting this form you agree we can email you about your request. We
-    don&rsquo;t share your info &mdash; ever.
+    Prefer email? hello@indigofoundry.com — we read everything.
   </p>
 </form>
 
@@ -131,8 +130,8 @@
   .contact-form select:focus,
   .contact-form textarea:focus {
     outline: none;
-    border-color: var(--color-ink);
-    box-shadow: 0 0 0 4px #d8f65140;
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 4px #4f46e540;
   }
   .contact-form textarea {
     resize: vertical;
