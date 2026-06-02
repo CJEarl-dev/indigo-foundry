@@ -27,7 +27,7 @@ const { name, bio = bios[name] ?? 'Writer at Lambda Agency.' } = Astro.props;
     {name.split(' ').map((s) => s[0]).join('')}
   </div>
   <div>
-    <p class="font-mono text-[10px] tracking-[.18em] text-muted uppercase">Written by</p>
+    <p class="font-mono text-[12px] tracking-[.18em] text-muted uppercase">Written by</p>
     <p class="mt-1.5 font-sans text-[17px] font-medium tracking-[-0.005em] text-ink">{name}</p>
     <p class="mt-1.5 text-sm leading-[1.55] text-ink-2">{bio}</p>
   </div>
