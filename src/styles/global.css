@@ -328,7 +328,7 @@
   }
 
   /* ---------- Annotations (absolute SVG arrows + script note) ---------- */
-  .annotate {
+/*  .annotate {
     position: absolute;
     display: flex;
     align-items: center;
@@ -338,7 +338,7 @@
   }
   .annotate svg { overflow: visible; }
   .annotate svg path { vector-effect: non-scaling-stroke; }
-
+/*
   /* ---------- Background patterns ---------- */
   .grid-bg {
     background-image:
