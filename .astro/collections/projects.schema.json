@@ -61,6 +61,9 @@
       "type": "string",
       "format": "uri"
     },
+    "stack": {
+      "type": "string"
+    },
     "featured": {
       "default": false,
       "type": "boolean"

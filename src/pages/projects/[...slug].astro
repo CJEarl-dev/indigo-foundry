@@ -97,8 +97,9 @@ const year = new Date(date).getFullYear();
           <div class="grid grid-cols-1 gap-6 rounded-2xl border border-line bg-card p-6">
             <div><div class="meta-k">Client</div><div class="meta-v">{client}</div></div>
             <div><div class="meta-k">Year</div><div class="meta-v">{year}</div></div>
-            <div><div class="meta-k">Team</div><div class="meta-v">3 designers · 2 engineers</div></div>
-            <div><div class="meta-k">Stack</div><div class="meta-v">Astro · CMS</div></div>
+            <div>{project.data.stack && (
+  <div><div class="meta-k">Stack</div><div class="meta-v">{project.data.stack}</div></div>
+)}
           </div>
         </aside>
       </div>
