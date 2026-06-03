@@ -4,8 +4,8 @@ client: "Speech For Yourself, LLC"
 category: "Web"
 date: 2026-01-15
 description: "A new website for a local speech-language pathology practice, built with a custom client intake form and Zanda Health booking integration."
-image: "./_images/northwind-4x5.png"
-cover: "./_images/northwind-16x9.png"
+image: "./_images/speech4yourself-4x5.png"
+cover: "./_images/speech4yourself-16x9.png"
 gallery: []
 results:
   - metric: "Booking Integration"

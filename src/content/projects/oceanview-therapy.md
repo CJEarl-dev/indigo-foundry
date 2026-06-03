@@ -4,8 +4,8 @@ client: "Oceanview Therapy"
 category: "Web"
 date: 2026-06-01
 description: "Ongoing maintenance and content partnership for a small speech-language pathology practice expanding across multiple states."
-image: "./_images/northwind-4x5.png"
-cover: "./_images/northwind-16x9.png"
+image: "./_images/oceanview-4x5.png"
+cover: "./_images/oceanview-16x9.png"
 gallery: []
 results:
   - metric: "Lighthouse Accessibility"

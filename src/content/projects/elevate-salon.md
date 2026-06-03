@@ -4,8 +4,8 @@ client: "Elevate Salon"
 category: "Web"
 date: 2026-03-02
 description: "A self-directed, full design-to-launch build — branding, color system, content, custom lookbook layout, and StyleSeat booking integration."
-image: "./_images/northwind-4x5.png"
-cover: "./_images/northwind-16x9.png"
+image: "./_images/elevate-4x5.png"
+cover: "./_images/elevate-16x9.png"
 gallery: []
 results:
   - metric: "Design to Launch"
