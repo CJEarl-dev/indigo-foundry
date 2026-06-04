@@ -8,88 +8,89 @@ export type Service = {
 };
 
 export const services: Service[] = [
+  
   {
-    slug: 'web-design',
-    title: 'Web Design',
-    icon: 'layout',
-    short: 'Beautiful, conversion-focused websites tailored to your brand.',
-    description:
-      'We craft visual experiences that balance aesthetics with usability, guiding visitors toward meaningful actions while staying true to your identity.',
-    features: [
-      'Wireframes & prototypes',
-      'Responsive layouts',
-      'Design systems',
-      'Accessibility audits',
-    ],
-  },
-  {
-    slug: 'web-development',
-    title: 'Web Development',
+    slug: 'custom-website-development',
+    title: 'Custom Website Development',
     icon: 'code',
-    short: 'Fast, scalable websites built with modern frameworks.',
+    short: 'Built for your goals, designed around your audience.',
     description:
-      'From landing pages to complex web apps, we deliver clean codebases that load fast, scale gracefully, and are a joy for your team to maintain.',
+      'Every site we build starts with a conversation about your goals. We develop websites that reflect your brand, serve your audience, and hold up over time.',
     features: [
-      'Astro, Next.js, and headless CMS',
-      'E-commerce integrations',
-      'Performance optimization',
-      'API & backend development',
+      'Custom design & development',
+      'Mobile-responsive layouts',
+      'Accessibility built in',
+      'Performance optimized',
     ],
   },
   {
-    slug: 'seo-analytics',
-    title: 'SEO & Analytics',
-    icon: 'search',
-    short: 'Rank higher, measure what matters, and grow organically.',
+    slug: 'website-redesign',
+    title: 'Website Redesign & Modernization',
+    icon: 'layout',
+    short: 'Structural improvement, not just a fresh coat of paint.',
     description:
-      'We combine technical SEO, content strategy, and analytics so you always know which channels drive revenue — and which to stop spending on.',
+      'If your site was built years ago and no longer reflects who you are or what you do, we rebuild it from the ground up — faster, more accessible, and easier to maintain.',
     features: [
-      'Technical SEO audits',
-      'Keyword & content strategy',
-      'GA4 & Looker dashboards',
-      'Conversion rate optimization',
+      'Content audit & restructure',
+      'Modern tech stack',
+      'Accessibility remediation',
+      'Improved performance',
     ],
   },
   {
-    slug: 'branding-identity',
-    title: 'Branding & Identity',
-    icon: 'palette',
-    short: 'Distinctive brand systems that people remember.',
-    description:
-      'Logos, typography, voice, and guidelines — we build cohesive brand systems that scale from business cards to billboards without losing character.',
-    features: [
-      'Logo & visual identity',
-      'Brand guidelines',
-      'Naming & messaging',
-      'Print & collateral design',
-    ],
-  },
-  {
-    slug: 'content-strategy',
-    title: 'Content Strategy',
+    slug: 'landing-pages',
+    title: 'Landing Page Development',
     icon: 'file-text',
-    short: 'Words and stories that connect with the right audience.',
+    short: 'Focused pages built to convert.',
     description:
-      'We help you plan, create, and publish content that answers real questions, builds trust, and moves prospects from curiosity to conversion.',
+      'Scoped, fast, and effective. Landing pages are ideal for campaigns, product launches, or any moment when you need a single page to do serious work.',
     features: [
-      'Editorial calendars',
-      'Long-form articles & case studies',
-      'Email & newsletter strategy',
-      'Copywriting for web & ads',
+      'Clear calls to action',
+      'Form & lead capture integration',
+      'Fast turnaround',
+      'Analytics ready',
     ],
   },
   {
-    slug: 'ui-ux-design',
-    title: 'UI/UX Design',
-    icon: 'figma',
-    short: 'Interfaces that feel intuitive from the first click.',
+    slug: 'maintenance-support',
+    title: 'Maintenance & Support',
+    icon: 'search',
+    short: 'Ongoing support so you can focus on your mission.',
     description:
-      'Through research, prototyping, and usability testing we design digital products that reduce friction and make users return willingly.',
+      'Ongoing support and maintenance to keep your site secure, current, and working — so you don\'t have to think about it.',
     features: [
-      'User research & personas',
-      'Interaction design',
-      'Usability testing',
-      'Design system handoff',
+      'Content updates',
+      'Security & dependency updates',
+      'Minor feature additions',
+      'Regular health checks',
+    ],
+  },
+  {
+    slug: 'accessibility-audits',
+    title: 'Accessibility Audits & Remediation',
+    icon: 'palette',
+    short: 'Make your site work for everyone.',
+    description:
+      'We audit your site against WCAG 2.2 AA standards, identify barriers, and fix them — with clear recommendations you can act on and build from.',
+    features: [
+    'WCAG 2.2 AA audit',
+    'Accessibility fixes & remediation',
+    'Lighthouse & WAVE testing',
+    'Practical recommendations',
+],
+  },
+  {
+    slug: 'copywriting-content',
+    title: 'Copywriting & Content',
+    icon: 'figma',
+    short: 'Words that sound like you — and work for your audience.',
+    description:
+      'Clear, purposeful copy for websites, landing pages, and key content. We work from your voice and your goals to write content that communicates without clutter.',
+    features: [
+      'Website copy',
+      'Landing page copy',
+      'Brand voice development',
+      'Content editing & refinement',
     ],
   },
 ];
@@ -105,24 +106,24 @@ export const processSteps: ProcessStep[] = [
     number: '01',
     title: 'Discovery',
     description:
-      'We dig into your business, audience, and goals to define what success looks like before writing a single line of code.',
+      'We dig into your goals, your audience, and what success actually looks like — before a single line of code is written.',
   },
   {
     number: '02',
     title: 'Design',
     description:
-      'We translate strategy into wireframes, moodboards, and high-fidelity designs you can review and shape with us.',
+      'We turn strategy into something you can see and react to — layouts, visuals, and structure you can review and shape with us.',
   },
   {
     number: '03',
     title: 'Develop',
     description:
-      'Our engineers build fast, accessible, and search-friendly sites on top of the design — with weekly progress demos.',
+      'We build fast, accessible, and search-friendly sites — with regular progress check-ins so you\'re never left wondering where things stand.',
   },
   {
     number: '04',
     title: 'Launch',
     description:
-      'We QA, migrate, and launch your project, then stick around to measure results and iterate on what works.',
+      'We test, migrate, and launch your project — then stay available to address anything that comes up after it goes live.',
   },
 ];
