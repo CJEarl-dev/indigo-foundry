@@ -6,40 +6,22 @@ const { image, imageAlt } = story;
 
 <section class="pt-10 pb-20">
   <div class="wrap">
-    <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-[60px]">
-      <div class="relative">
-        {image ? (
-          <img
-            src={image}
-            alt={imageAlt}
-            loading="lazy"
-            decoding="async"
-            class="aspect-[4/5] w-full rounded-3xl object-cover"
-          />
-        ) : (
-          <div class="ph ph-light aspect-[4/5] rounded-3xl">
-            <div>
-              <div class="ph-label">Our team · 2018</div>
-              <div class="ph-title">One laptop, one client</div>
-            </div>
-          </div>
-        )}
-      </div>
+    <div class="max-w-[680px]">
+      
       <div>
         <span class="eyebrow">Our story</span>
         <h2 class="story-head mt-3.5 font-serif">
-          Started in 2018 with <em>one laptop</em> and one client.
+          Built from a pivot, <em>not a plan.</em>
         </h2>
-        <p class="mt-5 text-base leading-[1.65] text-ink-2">
-          What began as a freelance moonlight turned into a small studio, then a fully-remote agency
-          with teammates in four countries. We picked up design, engineering, and strategy as the
-          work demanded it, and kept the things that mattered: a short client list, honest timelines,
-          and a serious bar for craft.
-        </p>
-        <p class="mt-4 text-base leading-[1.65] text-ink-2">
-          Today we collaborate with scrappy startups, mid-size B2B companies, and a handful of
-          nonprofits we care deeply about. We still pick projects one at a time.
-        </p>
+            <p class="mt-5 text-base leading-[1.65] text-ink-2">
+            Indigo Foundry didn't start with a five-year roadmap. It started with a career path that changed almost overnight — and a choice between waiting for another door to open or building something of my own.
+            </p>
+            <p class="mt-4 text-base leading-[1.65] text-ink-2">
+            That experience shapes how I work. I know what it feels like to need a new direction, to have a clear vision but to need clarity about how to execute it, and to have to prove yourself — to others and to yourself. That's exactly who I build for.
+            </p>
+            <p class="mt-4 text-base leading-[1.65] text-ink-2">
+            The studio is small by design. Every client gets my full attention, my full investment, and a partner who's genuinely in it with them.
+            </p>
         <!-- Annotation pointing UP-LEFT to the image -->
         <div class="mx-auto max-w-[1280px] mt-8">
           <div

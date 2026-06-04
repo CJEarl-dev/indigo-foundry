@@ -44,13 +44,12 @@ export const footerNav = {
   company: [
     { label: 'About', href: '/about' },
     { label: 'Services', href: '/services' },
-    { label: 'Careers', href: '/about#team' },
+   
     { label: 'Contact', href: '/contact' },
   ],
   resources: [
-    { label: 'Blog', href: '/blog' },
+ 
     { label: 'Projects', href: '/projects' },
-    { label: 'Case studies', href: '/projects' },
     { label: 'Resources', href: '/resources' },       // Link to new Resources page
     { label: 'Accessibility', href: '/accessibility' }, // Link to new Accessibility page
 ,

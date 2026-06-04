@@ -1,43 +1,38 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Story from '../components/about/Story.astro';
-import Stats from '../components/about/Stats.astro';
-import Team from '../components/about/Team.astro';
 import Values from '../components/about/Values.astro';
 import CTA from '../components/home/CTA.astro';
 ---
 
 <BaseLayout
   title="About"
-  description="Meet the team, learn our story, and read the values that shape every project we ship."
+  description="Learn our story and the values that shape every project we take on."
 >
   <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
     <div
       class="pointer-events-none absolute inset-0 -z-10"
-      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+      style="background: radial-gradient(55% 60% at 50% 0%, #4F46E528 0%, transparent 70%);"
     ></div>
 
     <div class="wrap">
       <p class="hero-eyebrow">// About the studio</p>
       <h1 class="about-head animate-fade-up mx-auto mt-5 max-w-[1000px] font-serif">
-        A small team building <em>the web we want to use.</em>
+        Serious about the craft. <em>Focused on your project.</em>
       </h1>
       <p class="mx-auto mt-7 max-w-[640px] text-[19px] text-ink-2">
-        We&rsquo;re a fully-remote studio of designers, engineers, and strategists helping ambitious
-        companies grow online.
+      When you work with Indigo Foundry, you work with me — start to finish, no handoffs, no surprises.
       </p>
     </div>
   </section>
 
   <Story />
-  <Stats />
-  <Team />
   <Values />
 
   <CTA
     eyebrow="Want to work with us?"
-    titleHtml={'We\u2019re usually booking <span class="mark-hl">4&ndash;6 weeks</span> out.'}
-    description="Reach out and we'll get back with next steps, even if we're at capacity."
+    titleHtml={'Let\u2019s find out if we\u2019re <span class="mark-hl">a good fit.</span>'}
+    description="Tell us about your project and we'll get back within one business day."
     primaryLabel="Start a conversation"
     primaryHref="/contact"
     secondaryLabel=""

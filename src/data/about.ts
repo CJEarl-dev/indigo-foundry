@@ -82,25 +82,25 @@ export const values: Value[] = [
     title: 'Craft over hype',
     icon: 'sparkles',
     description:
-      'We care more about shipping work we\u2019re proud of than chasing every new framework or trend that flies by.',
+      'We care more about building work we\u2019re proud of than chasing every new framework or trend.',
   },
   {
     title: 'Clear over clever',
-    icon: 'eye',
+    icon: 'bar-chart',
     description:
-      'Clever design fails silently. Clear design — in words, layout, and code — keeps teams and users aligned.',
+      'Clever design fails silently. Clear design \u2014 in words, layout, and code \u2014 keeps everyone on the same page.',
   },
   {
     title: 'Long-term partners',
     icon: 'handshake',
     description:
-      'Most of our clients stay with us for years. We plan for the site after launch, not just for launch day.',
+      'Most of our clients stay well beyond launch. We plan for the site after launch day \u2014 because that\u2019s when the real work begins.',
   },
   {
-    title: 'Measure everything',
-    icon: 'bar-chart',
+    title: 'Built for everyone',
+    icon: 'eye',
     description:
-      'Opinions are cheap; data is honest. We instrument every project so decisions are grounded in reality.',
+      'We build for everyone, not just the majority. Accessibility isn\u2019t a compliance checkbox \u2014 it\u2019s baked into every decision from the start.',
   },
 ];
 
