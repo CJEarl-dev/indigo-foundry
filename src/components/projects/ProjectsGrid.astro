@@ -6,7 +6,7 @@ import { Image } from 'astro:assets';
 type Props = { projects: CollectionEntry<'projects'>[] };
 const { projects } = Astro.props;
 
-const categories = ['All', 'Web', 'Branding', 'SEO', 'UI/UX', 'E-commerce'] as const;
+const categories = ['All', 'Web', 'Accessibility', 'Maintenance', 'Content'] as const;
 
 // First card = hero (featured). Others alternate default/wide for visual rhythm
 // across the 6-column mosaic (default = 2 cols, wide = 3 cols, hero = 4 cols).
