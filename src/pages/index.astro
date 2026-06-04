@@ -2,11 +2,11 @@
 import { getImage } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/home/Hero.astro';
-import Logos from '../components/home/Logos.astro';
+
 import ServicesPreview from '../components/home/ServicesPreview.astro';
 import ProjectsPreview from '../components/home/ProjectsPreview.astro';
 import AboutPreview from '../components/home/AboutPreview.astro';
-import Testimonials from '../components/home/Testimonials.astro';
+
 import CTA from '../components/home/CTA.astro';
 import { site } from '../data/site';
 
@@ -33,10 +33,10 @@ const heroPreload = site.heroImage
   preloadImageType="image/webp"
 >
   <Hero />
-  <Logos />
+  
   <ServicesPreview />
   <ProjectsPreview />
   <AboutPreview />
-  <Testimonials />
+
   <CTA />
 </BaseLayout>
