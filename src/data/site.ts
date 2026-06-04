@@ -3,8 +3,7 @@ import heroDashboard from '../images/hero-dashboard.png';
 export const site = {
   name: 'Indigo Foundry, LLC',
   title: 'Indigo Foundry',
-  description:
-    'Indigo Foundry is a boutique web and software development studio, where we build ',
+  description: 'Boutique web development studio based in Atlanta, GA. Built with intention, built to last.',
   url: 'https://www.indigo-foundry.com',
   locale: 'en',
   author: 'Christopher Earl',
