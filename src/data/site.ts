@@ -34,7 +34,7 @@ export const nav = [
   { label: 'Services', href: '/services' },
   { label: 'Projects', href: '/projects' },
   { label: 'About', href: '/about' },
-  { label: 'Blog', href: '/blog' },
+
   { label: 'Resources', href: '/resources' },      // New Resources page added
   { label: 'Accessibility', href: '/accessibility' }, // New Accessibility page added
   { label: 'Contact', href: '/contact' },

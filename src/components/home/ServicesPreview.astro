@@ -30,7 +30,7 @@ const featured = services.slice(0, 4).map((s, i) => ({
     <div class="grid grid-cols-1 overflow-hidden rounded-3xl border-t border-l border-line bg-card sm:grid-cols-2 lg:grid-cols-4">
       {featured.map((service) => (
         <a
-          class="service-card group relative flex min-h-[280px] flex-col overflow-hidden border-r border-b border-line bg-card px-7 pt-9 pb-7 transition-[background,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#3D3580]"
+          class="service-card group relative flex min-h-[280px] flex-col overflow-hidden border-r border-b border-line bg-card px-7 pt-9 pb-7 transition-[background,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#1A1830]"
           href={`/services#${service.slug}`}
         >
           <div class="flex items-center justify-between font-mono text-[11px] tracking-[.18em] text-muted uppercase transition-colors duration-300 group-hover:text-white">
@@ -46,7 +46,7 @@ const featured = services.slice(0, 4).map((s, i) => ({
           </div>
 
           <div class="mt-auto pt-20 transition-transform duration-300 group-hover:-translate-y-2">
-            <h3 class="text-[32px] leading-none tracking-[-0.015em]">
+            <h3 class="text-[32px] leading-none tracking-[-0.015em] transition-colors group-hover:text-white">
               {service.splitTitle.head}
               <em class="italic text-ink-2 transition-colors group-hover:text-white group-hover:opacity-70">{service.splitTitle.em}</em>
             </h3>
