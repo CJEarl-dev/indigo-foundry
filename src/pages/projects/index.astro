@@ -11,7 +11,7 @@ const projects = (await getCollection('projects')).sort(
 
 <BaseLayout
   title="Projects"
-  description="Selected client work across web design, development, SEO, and brand identity."
+  description="Selected client work across web development, accessibility, and brand identity."
 >
   <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
     <!-- Radial ambient glow -->
@@ -48,8 +48,8 @@ const projects = (await getCollection('projects')).sort(
   <ProjectsGrid projects={projects} />
 
   <CTA
-    eyebrow="Like what you see?"
-    titleHtml={'Let\u2019s build <span class="mark-hl">something</span> together.'}
+    eyebrow="Seen enough?"
+    titleHtml={'Let\u2019s build something that <span class="mark-hl">lasts.</span>'}
     description="Tell us about your project and we'll get back within one business day."
     primaryLabel="Start a project"
     primaryHref="/contact"
