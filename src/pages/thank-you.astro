@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Message Received"
+  description="Thanks for reaching out to Indigo Foundry."
+>
+  <section class="relative overflow-hidden pt-[100px] pb-10 text-center">
+    <div
+      class="pointer-events-none absolute inset-0 -z-10"
+      style="background: radial-gradient(55% 60% at 50% 0%, #4F46E528 0%, transparent 70%);"
+    ></div>
+    <div class="wrap">
+      <p class="hero-eyebrow">// Thank you</p>
+      <h1 class="thankyou-head animate-fade-up mt-5 font-serif">
+        We got <span class="mark-hl">it.</span>
+      </h1>
+      <p class="mx-auto mt-7 max-w-[560px] text-[19px] text-ink-2">
+        Thanks for reaching out. We'll review your submission and follow up within 2 business days — usually sooner.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a class="btn btn-primary" href="/">Back to home</a>
+        <a class="btn btn-ghost" href="/projects">See our work</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .thankyou-head {
+    font-weight: 400;
+    font-size: clamp(72px, 12vw, 180px);
+    line-height: .9;
+    letter-spacing: -0.02em;
+  }
+</style>
