@@ -5,10 +5,14 @@
 
 <form
   method="POST"
-  action="#"
+  action="/thank-you"
+  data-netlify="true"
+  name="contact"
   class="contact-form grid gap-[22px]"
   aria-label="Contact form"
 >
+<input type="hidden" name="form-name" value="contact" />
+
   <div class="grid grid-cols-1 gap-[22px] sm:grid-cols-2">
     <div class="grid gap-2">
       <label for="name">Your name</label>
