@@ -9,7 +9,7 @@ cover: "./_images/elevate-16x9.png"
 gallery: []
 results:
   - metric: "Design to Launch"
-    value: "Scratch"
+    value: "Full Build"
   - metric: "Booking Integration"
     value: "Live"
   - metric: "Custom Features"

@@ -8,12 +8,12 @@ image: "./_images/oceanview-4x5.png"
 cover: "./_images/oceanview-16x9.png"
 gallery: []
 results:
-  - metric: "Lighthouse Accessibility"
+  - metric: "Lighthouse Accessibility Score"
     value: "92"
-  - metric: "States Licensed"
-    value: "8+"
+  - metric: "States Licensed In"
+    value: "10"
   - metric: "Blog Launched"
-    value: "2026"
+    value: "May '26"
 website: "https://www.oceanviewtherapy.com"
 stack: "WordPress · Custom Features"
 featured: false
