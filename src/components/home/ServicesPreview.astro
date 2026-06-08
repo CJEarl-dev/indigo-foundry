@@ -30,7 +30,7 @@ const featured = services.slice(0, 4).map((s, i) => ({
     <div class="grid grid-cols-1 overflow-hidden rounded-3xl border-t border-l border-line bg-card sm:grid-cols-2 lg:grid-cols-4">
       {featured.map((service) => (
         <a
-          class="service-card group relative flex min-h-[280px] flex-col overflow-hidden border-r border-b border-line bg-card px-7 pt-9 pb-7 transition-[background,transform] duration-300 hover:-translate-y-0.5 hover:bg-[var(--color-bg)]"
+          class="service-card group relative flex min-h-[280px] flex-col overflow-hidden border-r border-b border-line bg-card px-7 pt-9 pb-7 transition-[background,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#1a1830]"
           href={`/services#${service.slug}`}
         >
           <div class="flex items-center justify-between font-mono text-[11px] tracking-[.18em] text-muted uppercase transition-colors duration-300 group-hover:text-white">

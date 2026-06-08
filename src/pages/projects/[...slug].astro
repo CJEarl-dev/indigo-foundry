@@ -138,13 +138,10 @@ const year = new Date(date).getFullYear();
 
   <!-- Results -->
   {results.length > 0 && (
-    <section class="py-[120px] max-md:py-20">
+    <section class="pb-[120px] pt-10 max-md:py-20">
       <div class="wrap">
         <span class="eyebrow">Results</span>
-        <h2 class="results-head mt-3 max-w-[800px] font-serif">
-          Six weeks of work, a <em>year of impact.</em>
-        </h2>
-        <div class="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
           {results.map((r, i) => (
             <div class="rounded-[20px] border border-line bg-card p-10">
               <div class="text-[64px] leading-none tracking-[-0.02em]">
