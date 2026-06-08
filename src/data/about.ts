@@ -114,24 +114,24 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      'Lambda rebuilt our marketing site in six weeks and doubled our qualified demo requests within the first quarter. Easily the best agency we\u2019ve worked with.',
-    name: 'Priya Shah',
-    role: 'VP of Marketing, Northwind SaaS',
-    image: '/images/team/testimonial-1.jpg',
+      'We went from having no online presence to having a site that immediately conveys credibility and intentionality. The navigation is clean and user-friendly, and the site is actually converting inquiries — we\'ve had outreach from partner practices and school districts who specifically mentioned being impressed by the site.',
+    name: 'Alicia',
+    role: 'Founder, Speech For Yourself LLC',
+    image: '',
   },
   {
     quote:
-      'The team treated our brand like it was their own. The system they delivered has held up across three product launches without a single redesign.',
-    name: 'Daniel Osei',
-    role: 'Founder, Mercato Foods',
-    image: '/images/team/testimonial-2.jpg',
+      'What I communicated was implemented without a hiccup or extra clarification. It\'s more targeted to my audience in a relatable, understandable way — less wordy and more digestible. The blog we added has especially been exciting because it gives us a way to reach our audience even more.',
+    name: 'Carmen',
+    role: 'Founder & Co-Owner, Oceanview Therapy',
+    image: '',
   },
   {
     quote:
-      'From the discovery workshop to launch day, communication was clear and the delivery was on time. Our Lighthouse scores went from the 60s to consistent 98s.',
-    name: 'Laura Benítez',
-    role: 'Head of Digital, Helio Energy',
-    image: '/images/team/testimonial-3.jpg',
+      'Chris was responsive to feedback, understood our clinical mission — not just the technical side — and built what we envisioned without unnecessary back-and-forth. He asked the right questions and made thoughtful recommendations. The process felt collaborative rather than transactional.',
+    name: 'Alicia',
+    role: 'Co-Owner, Oceanview Therapy',
+    image: '',
   },
 ];
 
