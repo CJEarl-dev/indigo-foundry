@@ -2,7 +2,7 @@ import heroDashboard from '../images/hero-dashboard.png';
 
 export const site = {
   name: 'Indigo Foundry, LLC',
-  ttitle: 'Indigo Foundry — Web Development Studio | Atlanta, GA',
+  title: 'Indigo Foundry — Web Development Studio | Atlanta, GA',
   description: 'Boutique web development studio based in metro Atlanta, GA. We build custom websites, accessibility-first, for organizations that refuse to cut corners.',
   url: 'https://www.indigo-foundry.com',
   locale: 'en',

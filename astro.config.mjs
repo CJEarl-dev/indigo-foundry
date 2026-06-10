@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://lambda-agency.example.com',
+  site: 'https://indigo-foundry.com',
   integrations: [
     mdx(),
     sitemap({
