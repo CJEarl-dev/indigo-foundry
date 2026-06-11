@@ -15,7 +15,7 @@ export const site = {
   social: {
     // x: 'https://x.com',
     linkedin: 'https://www.linkedin.com/in/chris-j-earl/',
-    instagram: 'https://www.instagram.com/indigofoundry',
+    bluesky: 'https://bsky.app/profile/jayelektron.bsky.social',
     github: 'https://github.com/CJEarl-dev',
     // dribbble: 'https://dribbble.com',
   },

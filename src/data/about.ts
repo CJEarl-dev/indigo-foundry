@@ -23,6 +23,7 @@ export type TeamMember = {
     linkedin?: string;
     dribbble?: string;
     github?: string;
+    bluesky?: string;
   };
 };
 
@@ -35,6 +36,7 @@ export const team: TeamMember[] = [
     social: {
       linkedin: 'https://www.linkedin.com/in/chris-j-earl',
       github: 'https://github.com/CJEarl-dev',
+      bluesky: 'https://bsky.app/profile/jayelektron.bsky.social',
     },
   },
 ];
