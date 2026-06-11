@@ -28,43 +28,13 @@ export type TeamMember = {
 
 export const team: TeamMember[] = [
   {
-    name: 'Alex Rivera',
-    role: 'Founder & Creative Director',
-    bio: 'Obsessed with clean typography, sharp brand systems, and the occasional typography rabbit hole.',
-    image: '/images/team/alex-rivera.png',
+    name: 'Christopher J. Earl',
+    role: 'Founder & Software Engineer',
+    bio: 'Full-stack engineer who founded Indigo Foundry after a career pivot proved the fastest way forward is sometimes building your own door. Now I build them for other people — clean code, clear communication, and no disappearing after launch.',
+    image: '/images/team/chris.jpg',
     social: {
-      x: 'https://x.com',
-      linkedin: 'https://linkedin.com',
-    },
-  },
-  {
-    name: 'Jordan Lee',
-    role: 'Lead Engineer',
-    bio: 'Turns design files into fast, accessible web experiences — with a soft spot for Astro and edge rendering.',
-    image: '/images/team/jordan-lee.png',
-    social: {
-      github: 'https://github.com',
-      linkedin: 'https://linkedin.com',
-    },
-  },
-  {
-    name: 'Sam Chen',
-    role: 'Strategy & SEO',
-    bio: 'Data-driven marketer who reads server logs for fun. Has probably audited your competitors already.',
-    image: '/images/team/sam-chen.png',
-    social: {
-      x: 'https://x.com',
-      linkedin: 'https://linkedin.com',
-    },
-  },
-  {
-    name: 'Morgan Diaz',
-    role: 'Product Designer',
-    bio: 'Prototype-first designer who believes the best interface is the one you don\u2019t notice.',
-    image: '/images/team/morgan-diaz.png',
-    social: {
-      dribbble: 'https://dribbble.com',
-      linkedin: 'https://linkedin.com',
+      linkedin: 'https://www.linkedin.com/in/chris-j-earl',
+      github: 'https://github.com/CJEarl-dev',
     },
   },
 ];
