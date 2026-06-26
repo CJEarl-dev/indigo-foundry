@@ -7,11 +7,16 @@
   method="POST"
   action="/thank-you"
   data-netlify="true"
+  data-netlify-honeypot="bot-field"
   name="contact"
   class="contact-form grid gap-[22px]"
   aria-label="Contact form"
 >
 <input type="hidden" name="form-name" value="contact" />
+<p class="hidden-field" aria-hidden="true">
+  <label for="bot-field">Don't fill this out if you're human</label>
+  <input id="bot-field" name="bot-field" type="text" tabindex="-1" autocomplete="off" />
+</p>
 
   <div class="grid grid-cols-1 gap-[22px] sm:grid-cols-2">
     <div class="grid gap-2">
@@ -151,6 +156,17 @@
   .contact-form textarea {
     resize: vertical;
     min-height: 140px;
+  }
+
+  /* Honeypot field — hidden from sighted users, but NOT display:none/visibility:hidden.
+     Netlify (and most bots scanning the DOM) can tell those two apart from genuinely
+     visually-hidden-but-present fields, so we use an off-screen position instead. */
+  .hidden-field {
+    position: absolute;
+    left: -5000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
   }
 
   /* Hand-drawn annotation positioning */
