@@ -18,23 +18,24 @@ const categories = ['All', ...Array.from(new Set(rest.map((p) => p.data.category
 <BaseLayout
   title="Blog"
   description="Essays and field notes on design, engineering, SEO, and running a small agency."
+  noindex={true}
 >
-  <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
-    <div
-      class="pointer-events-none absolute inset-0 -z-10"
-      style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
-    ></div>
+ <section class="relative overflow-hidden pt-[100px] pb-[60px] text-center">
+  <div
+    class="pointer-events-none absolute inset-0 -z-10"
+    style="background: radial-gradient(55% 60% at 50% 0%, #D8F65128 0%, transparent 70%);"
+  ></div>
 
-    <div class="wrap">
-      <p class="hero-eyebrow">// Blog</p>
-      <h1 class="page-hero-head animate-fade-up mt-5 font-serif">
-        Field <em>notes.</em>
-      </h1>
-      <p class="mx-auto mt-7 max-w-[560px] text-[19px] text-ink-2">
-        Writing about the craft, business, and daily practice of shipping great digital work.
-      </p>
-    </div>
-  </section>
+  <div class="wrap">
+    <p class="hero-eyebrow">// Notes</p>
+    <h1 class="page-hero-head animate-fade-up mt-5 font-serif">
+      Field <em>notes.</em>
+    </h1>
+    <p class="mx-auto mt-7 max-w-[560px] text-[19px] text-ink-2">
+      Notes on building things that hold up — accessible code, systems thinking, and what a public health background teaches you about software.
+    </p>
+  </div>
+</section>
 
   {featured && <FeaturedPost post={featured} />}
 
