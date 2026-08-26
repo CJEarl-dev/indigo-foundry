@@ -7,7 +7,7 @@ export const site = {
   url: 'https://www.indigo-foundry.com',
   locale: 'en',
   author: 'Christopher Earl',
-  email: 'hello@indigofoundry.com',
+  email: 'hello@indigo-foundry.com',
   // phone: '+1 (555) 123-4567',
   // address: '123 Main Street, Suite 400, San Francisco, CA 94105',
   // hours: 'Mon – Fri, 9:00 – 18:00',
