@@ -4,7 +4,7 @@ export const site = {
   name: 'Indigo Foundry, LLC',
   title: 'Indigo Foundry — Web Development Studio | Atlanta, GA',
   description: 'Boutique web development studio based in metro Atlanta, GA. We build custom websites, accessibility-first, for organizations that refuse to cut corners.',
-  url: 'https://www.indigo-foundry.com',
+  url: 'https://indigo-foundry.com',
   locale: 'en',
   author: 'Christopher Earl',
   email: 'hello@indigo-foundry.com',
@@ -31,31 +31,31 @@ export const site = {
 
 export const nav = [
   { label: 'Home', href: '/' },
-  { label: 'Services', href: '/services' },
-  { label: 'Projects', href: '/projects' },
-  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services/' },
+  { label: 'Projects', href: '/projects/' },
+  { label: 'About', href: '/about/' },
 
-  { label: 'Resources', href: '/resources' },      // New Resources page added
-  { label: 'Accessibility', href: '/accessibility' }, // New Accessibility page added
-  { label: 'Contact', href: '/contact' },
+  { label: 'Resources', href: '/resources/' },      // New Resources page added
+  { label: 'Accessibility', href: '/accessibility/' }, // New Accessibility page added
+  { label: 'Contact', href: '/contact/' },
 ];
 
 export const footerNav = {
   company: [
-    { label: 'About', href: '/about' },
-    { label: 'Services', href: '/services' },
+    { label: 'About', href: '/about/' },
+    { label: 'Services', href: '/services/' },
    
-    { label: 'Contact', href: '/contact' },
+    { label: 'Contact', href: '/contact/' },
   ],
   resources: [
  
-    { label: 'Projects', href: '/projects' },
-    { label: 'Resources', href: '/resources' },       // Link to new Resources page
-    { label: 'Accessibility', href: '/accessibility' }, // Link to new Accessibility page
+    { label: 'Projects', href: '/projects/' },
+    { label: 'Resources', href: '/resources/' },       // Link to new Resources page
+    { label: 'Accessibility', href: '/accessibility/' }, // Link to new Accessibility page
 ,
   ],
   legal: [
-    { label: 'Privacy policy', href: '/privacy' },
-    { label: 'Terms of service', href: '/terms' },
+    { label: 'Privacy policy', href: '/privacy/' },
+    { label: 'Terms of service', href: '/terms/' },
   ],
 };
