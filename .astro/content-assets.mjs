@@ -1,9 +1,0 @@
-
-import __ASTRO_IMAGE_IMPORT_2f42VG from "./_images/elevate-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Felevate-salon.md";
-import __ASTRO_IMAGE_IMPORT_O9gSA from "./_images/elevate-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Felevate-salon.md";
-import __ASTRO_IMAGE_IMPORT_Z21gnsa from "./_images/oceanview-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Foceanview-therapy.md";
-import __ASTRO_IMAGE_IMPORT_Z1OKnzM from "./_images/oceanview-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Foceanview-therapy.md";
-import __ASTRO_IMAGE_IMPORT_2ggQdY from "./_images/speech4yourself-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Fspeech-for-yourself.md";
-import __ASTRO_IMAGE_IMPORT_Z7pKkC from "./_images/speech4yourself-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Fspeech-for-yourself.md";
-export default new Map([["./_images/elevate-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Felevate-salon.md", __ASTRO_IMAGE_IMPORT_2f42VG], ["./_images/elevate-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Felevate-salon.md", __ASTRO_IMAGE_IMPORT_O9gSA], ["./_images/oceanview-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Foceanview-therapy.md", __ASTRO_IMAGE_IMPORT_Z21gnsa], ["./_images/oceanview-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Foceanview-therapy.md", __ASTRO_IMAGE_IMPORT_Z1OKnzM], ["./_images/speech4yourself-16x9.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Fspeech-for-yourself.md", __ASTRO_IMAGE_IMPORT_2ggQdY], ["./_images/speech4yourself-4x5.png?astroContentImageFlag=&importer=src%2Fcontent%2Fprojects%2Fspeech-for-yourself.md", __ASTRO_IMAGE_IMPORT_Z7pKkC]]);
-		

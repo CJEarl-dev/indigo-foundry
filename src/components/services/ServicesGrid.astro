@@ -10,7 +10,7 @@ import { services } from '../../data/services';
       {services.map((service, i) => (
         <article
           id={service.slug}
-          class="grid grid-cols-1 gap-8 rounded-[22px] border border-line bg-card p-10 transition-colors duration-[250ms] hover:border-line-strong lg:grid-cols-[auto_1fr] max-lg:gap-5 max-lg:p-7"
+          class="scroll-mt-32 grid grid-cols-1 gap-8 rounded-[22px] border border-line bg-card p-10 transition-colors duration-[250ms] hover:border-line-strong lg:grid-cols-[auto_1fr] max-lg:gap-5 max-lg:p-7"
         >
           <div class="font-serif text-[48px] leading-none tracking-[-0.02em] text-ink ">
             <span class="mark-hl px-4">{String(i + 1).padStart(2, '0')}</span>
@@ -33,7 +33,7 @@ import { services } from '../../data/services';
               ))}
             </ul>
             <a
-              href={`/contact?service=${service.slug}`}
+              href={`/contact/?service=${service.slug}`}
               class="svc-link mt-7 inline-flex items-center gap-1.5 border-b border-ink pb-0.5 text-sm font-medium transition-[gap] duration-200 hover:gap-2.5"
             >
               Talk about this

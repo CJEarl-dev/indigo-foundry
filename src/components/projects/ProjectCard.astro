@@ -7,7 +7,7 @@ const { project } = Astro.props;
 const { title, category, description, image } = project.data;
 ---
 
-<a href={`/projects/${project.id}`} class="group block">
+<a href={`/projects/${project.id}/`} class="group block">
   <div class="mb-4 aspect-[4/3] overflow-hidden rounded-xl bg-neutral-200">
     <Image
       src={image}

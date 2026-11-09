@@ -162,14 +162,14 @@ const year = new Date(date).getFullYear();
       aria-label="Project navigation"
     >
       {prev ? (
-        <a class="project-nav-link" href={`/projects/${prev.id}`}>← {prev.data.title}</a>
+        <a class="project-nav-link" href={`/projects/${prev.id}/`}>← {prev.data.title}</a>
       ) : (
-        <a class="project-nav-link" href="/projects">← All projects</a>
+        <a class="project-nav-link" href="/projects/">← All projects</a>
       )}
       {next ? (
-        <a class="project-nav-link" href={`/projects/${next.id}`}>{next.data.title} →</a>
+        <a class="project-nav-link" href={`/projects/${next.id}/`}>{next.data.title} →</a>
       ) : (
-        <a class="project-nav-link" href="/projects">All projects →</a>
+        <a class="project-nav-link" href="/projects/">All projects →</a>
       )}
     </nav>
   </section>
@@ -179,7 +179,7 @@ const year = new Date(date).getFullYear();
     titleHtml={'Tell us about <em>your project.</em>'}
     description="We'll reply with a rough plan, timeline, and a realistic estimate."
     primaryLabel="Get in touch"
-    primaryHref="/contact"
+    primaryHref="/contact/"
     secondaryLabel=""
     secondaryHref=""
     showAnnotation={false}

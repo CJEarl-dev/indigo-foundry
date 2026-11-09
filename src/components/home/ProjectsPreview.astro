@@ -19,14 +19,14 @@ const year = (d: Date) => new Date(d).getFullYear();
         <span class="eyebrow text-ink">Selected work</span>
         <h2 class="projects-head font-serif">Recent <em>projects.</em></h2>
       </div>
-      <a class="btn btn-ghost justify-self-start md:justify-self-end" href="/projects">All projects →</a>
+      <a class="btn btn-ghost justify-self-start md:justify-self-end" href="/projects/">All projects →</a>
     </div>
 
     <div class="grid grid-cols-1 gap-5 lg:grid-cols-3">
       {featured.map((project) => (
         <a
           class="project-card group relative flex aspect-[4/5] flex-col overflow-hidden rounded-[20px] border border-black/10 text-inherit duration-300 hover:shadow-[0_30px_60px_-30px_#14121050]"
-          href={`/projects/${project.id}`}
+          href={`/projects/${project.id}/`}
         >
           <div class="relative flex-1 overflow-hidden">
             {project.data.image && (
