@@ -1,17 +1,10 @@
 export const story = {
   // Set to '' to render the gradient placeholder, or a path under /public (e.g. '/images/about/story.jpg')
   image: '/images/about/story.png',
-  imageAlt: 'The Lambda team in the early days',
+  imageAlt: 'Chris Earl, found of Indigo Foundry',
 };
 
-export type Stat = { value: string; label: string };
-
-export const stats: Stat[] = [
-  { value: '150+', label: 'Projects delivered' },
-  { value: '50+', label: 'Happy clients' },
-  { value: '8+', label: 'Years in business' },
-  { value: '15+', label: 'Industry awards' },
-];
+// Future: stats / client logos sections (see git history for the original template shapes)
 
 export type TeamMember = {
   name: string;
@@ -107,13 +100,3 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-export type Logo = { name: string; src: string };
-
-export const logos: Logo[] = [
-  { name: 'Northwind', src: '/images/logos/northwind.svg' },
-  { name: 'Mercato', src: '/images/logos/mercato.svg' },
-  { name: 'Helio', src: '/images/logos/helio.svg' },
-  { name: 'Orbit', src: '/images/logos/orbit.svg' },
-  { name: 'Lumen', src: '/images/logos/lumen.svg' },
-  { name: 'Field & Fern', src: '/images/logos/field-fern.svg' },
-];
